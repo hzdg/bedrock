@@ -1,0 +1,42 @@
+// ------------------------------------------------
+//	Bedrock
+//
+//	https://github.com/aebsr/bedrock
+// ------------------------------------------------
+
+@import 'reset.less';
+@import 'mixins/declarations.less';
+@import 'mixins/transformations.less';
+@import 'mixins/gradients.less';
+@import 'mixins/misc.less';
+@import 'mixins/sticky-footer.less';
+@import 'mixins/grid.less';
+@import 'mixins/vertical-align.less';
+
+@static_url: '/static/';
+
+* {
+	.transition(.3s all ease-in-out);
+	.box-sizing(border-box);
+	font-size: 100%;
+}
+
+// Image Replacement
+.replace-text() {
+	text-indent: 1000%;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+}
+
+// Explicitly remove style from lists
+.unstyle-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> * {
+		margin: 0;
+		padding: 0;
+	}
+}

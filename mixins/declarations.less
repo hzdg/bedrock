@@ -1,0 +1,91 @@
+// ------------------------------------------------
+//	CSS Declarations
+//
+//	Better, consolodated and missing css declarations that
+//	account for browser inconsistency in support and
+//	implimentation.
+// ------------------------------------------------
+
+// Clearfix
+.clearfix {
+
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+	.ie7 & {
+		zoom: 1;
+	}
+}
+
+// Better { display: Inline-block }
+.inline-block() {
+	display: inline-block;
+
+	.ie7 & {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+// Simpler Size
+// set one value for squares, two values for rectangles
+.size(@size) {
+	width: @size;
+	height: @size;
+}
+.size(@height, @width) {
+	width: @width;
+	height: @height;
+}
+
+// Image Replacement
+// Kullem Method: http://bit.ly/RyNnoz
+// Element must be display block or inline-block
+.replace-text() {
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+// Copyleft
+// Wikipedia: http://en.wikipedia.org/wiki/Copyleft
+// <span class="copyleft">&copy;</span>
+.copyleft {
+	.inline-block();
+	.rotate(180deg);
+}
+
+// Border Radius
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+
+	.pie & {
+		.reset-filter();
+		behavior: url(PIE.htc);
+	}
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+
+	.pie & {
+		.reset-filter();
+		behavior: url(PIE.htc);
+	}
+}
+
+
+// Reset filters for IE
+.reset-filter() {
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}

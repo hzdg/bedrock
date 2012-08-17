@@ -1,0 +1,31 @@
+// valign
+.valign(@height) {
+	display: table;
+	height: @height;
+	overflow: hidden;
+
+	.ie7 & {
+		position: relative;
+		overflow: visible;
+	}
+
+	> .inner {
+		display: table-cell;
+		vertical-align: middle;
+		margin: 0 auto;
+
+		.ie7 & {
+			position: absolute;
+			top: 50%;
+		}
+
+		.element {
+			position: relative;
+			z-index: 1;
+
+			.ie7 & {
+				top: -50%;
+			}
+		}
+	}
+}

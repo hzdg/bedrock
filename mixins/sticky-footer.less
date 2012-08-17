@@ -1,0 +1,43 @@
+// ------------------------------------------------
+//	Sticky Footer
+//	Required: declare height
+//
+//	By default the mixin does not support IE7. To extend
+//	support add <div class="push"></div> after your
+//	div:first-child in lieu of :after psuedo class support.
+// ------------------------------------------------
+
+.sticky-footer(@height) {
+
+	.hundo {
+		min-height: 100%;
+		height: auto !important;
+		height: 100%;
+	}
+
+	.push {
+		height: @height;
+		width: 100%;
+		display: block;
+		background: transparent;
+		content: '';
+	}
+
+	html,
+	body {
+		.hundo();
+
+		> div:first-child {
+			.hundo();
+			margin: 0 0 -@height 0;
+
+			&:after {
+				.push();
+			}
+		}
+
+		> footer {
+			height: @height;
+		}
+	}
+}
