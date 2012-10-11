@@ -9,13 +9,13 @@
 
 .sticky-footer(@height) {
 
-	.hundo {
+	.hundo () {
 		min-height: 100%;
 		height: auto !important;
 		height: 100%;
 	}
 
-	.push {
+	.push () {
 		height: @height;
 		width: 100%;
 		display: block;
@@ -23,7 +23,10 @@
 		content: '';
 	}
 
-	html,
+	html {
+		.hundo();
+	}
+
 	body {
 		.hundo();
 
