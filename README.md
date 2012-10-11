@@ -4,6 +4,13 @@ This minimal LESS baseline is used for personal and client projects. I took what
 
 Frameworks are too limiting. If your truly handwriting code only so much of it can be reused. Your classnames, IDs and markup structure should match what's best for the project. Bedrock attempts to avoid telling how to write your code and instead and instead allows you to just write it.
 
+# Install
+To install bedrock, simply download the zip into a folder of your choice or:
+
+Using [Bower](https://github.com/twitter/bower) you can run `bower install bedrock`
+
+Using a git submodule you can run `git submodule add git://github.com/aebsr/bedrock.git bedrock`
+
 # Browser Support
 
 Out of the box, Bedrock supports IE8 up. But it is [CSS3Pie](http://css3pie.com) and [BoxSizing](https://github.com/Schepp/box-sizing-polyfill) ready if you need to support IE7.
