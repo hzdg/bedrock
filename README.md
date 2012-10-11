@@ -14,7 +14,6 @@ To enable support checkout the following steps. I chose to not use Modernizr cla
 
 To enable CSS3PIE, add the `pie` class to the `html` tag.
 
-`<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->`
 
 And then in your LESS file, define the url of your polyfill, otherwise the default path will be used.
 
