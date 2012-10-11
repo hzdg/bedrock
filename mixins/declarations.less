@@ -97,6 +97,18 @@
 	}
 }
 
+// Explicitly remove style from lists
+.unstyle-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> * {
+		margin: 0;
+		padding: 0;
+	}
+}
+
 
 // Reset filters for IE
 .reset-filter() {

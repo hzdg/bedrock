@@ -34,14 +34,7 @@
 	.box-sizing(border-box);
 	font-size: 100%;
 
-// Explicitly remove style from lists
-.unstyle-list() {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	> * {
-		margin: 0;
-		padding: 0;
+	.ie7 & {
+		behavior: url("@{boxsizing_url}");
 	}
 }
