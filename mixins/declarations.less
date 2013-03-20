@@ -121,3 +121,21 @@
 .reset-filter() {
 	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }
+
+// Shortcuts for setting horizontal or vertical padding/margin at once.
+.h-margin(@val) {
+	margin-left: @val;
+	margin-right: @val;
+}
+.v-margin(@val) {
+	margin-top: @val;
+	margin-bottom: @val;
+}
+.h-padding(@val) {
+	padding-left: @val;
+	padding-right: @val;
+}
+.v-padding(@val) {
+	padding-top: @val;
+	padding-bottom: @val;
+}
