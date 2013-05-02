@@ -9,6 +9,8 @@ To install bedrock, simply download the zip into a folder of your choice or:
 
 Using [Bower](https://github.com/twitter/bower) you can run `bower install bedrock`
 
+Using [Volo](https://github.com/volojs/volo) you can run `volo install aebsr/bedrock` or `volo add aebsr/bedrock`
+
 Using a git submodule you can run `git submodule add git://github.com/aebsr/bedrock.git bedrock`
 
 # Browser Support
