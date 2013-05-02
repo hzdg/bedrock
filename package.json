@@ -1,0 +1,18 @@
+{
+  "name": "bedrock",
+  "description": "a highly unopinionated and minimal front-end baseline built in LESS",
+  "version": "0.0.1",
+  "keywords": ["baseline", "css", "less", "bedrock"],
+  "homepage": "http://github.com/aebsr/bedrock/",
+  "author": "Antoine Butler <antoinebsr@gmail.com> (https://github.com/aebsr)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aebsr/bedrock.git"
+  },
+  "licenses": [
+    {
+      "type": "WTFPL",
+      "url": "http://www.wtfpl.net/about/"
+    }
+  ]
+}
