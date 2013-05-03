@@ -115,6 +115,39 @@
 	}
 }
 
+// Explicitly remove style from form elements
+.unstyle-form() {
+	textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+		.background-clip(padding);
+		.border-radius(0);
+
+		-webkit-appearance: none;
+		background-color: #fff;
+		color: #000;
+		outline: 0;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		border: none;
+	}
+
+	fieldset, button {
+		-webkit-appearance: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	button {
+		background: white;
+		color: #000;
+	}
+
+	legend {
+		padding: 0;
+	}
+}
+
 
 // Reset filters for IE
 .reset-filter() {
