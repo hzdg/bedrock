@@ -171,3 +171,10 @@
 	padding-top: @val;
 	padding-bottom: @val;
 }
+
+// Mixin to animate all the things
+.animate-everything() {
+	body * {
+		.transition(.3s all ease-in-out);
+	}
+}
