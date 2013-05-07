@@ -1,0 +1,9 @@
+// Better { display: Inline-block }
+.inline-block() {
+	display: inline-block;
+}
+
+.inline-block() when (@support-ie7 = true) {
+	display: inline;
+	zoom: 1;
+}

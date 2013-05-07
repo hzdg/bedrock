@@ -11,29 +11,50 @@
  */
 
 @import 'reset';
-@import 'mixins/declarations';
-@import 'mixins/transformations';
-@import 'mixins/gradients';
-@import 'mixins/misc';
-@import 'mixins/sticky-footer';
-@import 'mixins/vertical-align';
+@import 'mixins/env';
 
-@static_url: '/static/';
-
-// CSS3 Pie - http://css3pie.com
-// absolute path to css3pie htc file
-// .pie class is required on either html or body tag to enable support
-@pie_url: '/PIE.htc';
-
-// BoxSizing Polyfill - https://github.com/Schepp/box-sizing-polyfill
-// absolute path to boxsizing htc
-@boxsizing_url: '/boxsizing.htc';
+@import "mixins/backface-visibility";
+@import "mixins/copyleft";
+@import "mixins/padding";
+@import "mixins/translate";
+@import "mixins/background-clip";
+@import "mixins/delay";
+@import "mixins/reset-filter";
+@import "mixins/translate3d";
+@import "mixins/background-size";
+@import "mixins/resizable";
+@import "mixins/transparent";
+@import "mixins/border-radius";
+@import "mixins/gradients";
+@import "mixins/rotate";
+@import "mixins/unstyle-form";
+@import "mixins/box-shadow";
+@import "mixins/hyphens";
+@import "mixins/scale";
+@import "mixins/unstyle-list";
+@import "mixins/box-sizing";
+@import "mixins/replace-text";
+@import "mixins/size";
+@import "mixins/user-select";
+@import "mixins/center-block";
+@import "mixins/inline-block";
+@import "mixins/skew";
+@import "mixins/vertical-align";
+@import "mixins/clearfix";
+@import "mixins/margin";
+@import "mixins/sticky-footer";
+@import "mixins/columns";
+@import "mixins/opacity";
+@import "mixins/transition";
 
 * {
 	.box-sizing(border-box);
 	font-size: 100%;
+}
 
-	.ie7 & {
-		behavior: url("@{boxsizing_url}");
+.animate-everything() {
+	body * {
+		.transition(.3s all ease-in-out);
 	}
 }
+
