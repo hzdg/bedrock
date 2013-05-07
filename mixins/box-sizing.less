@@ -6,6 +6,6 @@
 	box-sizing: @boxmodel;
 }
 
-.box-sizing(@boxmodel) when (@support-pie = true) {
-	behavior: url("@{pie_url}");
+.box-sizing(@boxmodel) when (@support-ie7 = true) {
+	behavior: url("@{boxsizing_url}");
 }
