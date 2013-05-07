@@ -33,5 +33,18 @@ Both these are false by default. If CSS3PIE support is enabled you should update
 @pie_url: '/PIE.htc';
 @boxsizing_url: '/boxsizing.htc';
 ```
-**default paths above*
+*_default paths above_
 
+### Legacy Support
+If your testing v1.0.0-wip on an older site simply set the support for ie7 and pie to 'true'. Pre 1.0 had assumed both were supported out of the box.
+
+## ToDos
+Modularize support for:
+
+* ie8
+* firefox >3.6
+* safari >4.0
+* mobile/safari (iOS) >3.2
+* mobile/safari (iOS) >4.3
+* android browser >3.0
+* blackberry browser >7.0
