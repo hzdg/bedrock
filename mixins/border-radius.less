@@ -6,6 +6,8 @@
 }
 
 .border-radius(@radius) when (@support-pie = true) {
-	.reset-filter();
-	behavior: url("@{pie_url}");
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
 }

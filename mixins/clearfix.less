@@ -11,5 +11,7 @@
 }
 
 .clearfix() when (@support-ie7 = true) {
-	zoom: 1;
+	.@{ie7-class} & {
+		zoom: 1;
+	}
 }

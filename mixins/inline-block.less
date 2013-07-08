@@ -4,6 +4,8 @@
 }
 
 .inline-block() when (@support-ie7 = true) {
-	display: inline;
-	zoom: 1;
+	.@{ie7-class} & {
+		display: inline;
+		zoom: 1;
+	}
 }

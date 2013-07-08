@@ -7,5 +7,7 @@
 }
 
 .box-sizing(@boxmodel) when (@support-ie7 = true) {
-	behavior: url("@{boxsizing_url}");
+	.@{ie7-class} & {
+		behavior: url("@{boxsizing-url}");
+	}
 }

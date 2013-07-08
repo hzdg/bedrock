@@ -1,5 +1,10 @@
 // Opacity
 .opacity(@opacity) {
 	opacity: (@opacity / 100);
-	filter: ~"alpha(opacity=@{opacity})";
+}
+
+.opacity(@opacity) when (@support-ie8 = true) {
+	.@{ie8-class} & {
+		filter: ~"alpha(opacity=@{opacity})";
+	}
 }
