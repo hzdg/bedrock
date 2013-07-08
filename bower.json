@@ -5,11 +5,5 @@
     "tests/",
     "*.md",
     "LICENSE"
-  ],
-  "dependencies": {
-    "normalize-css": "*"
-  },
-  "devDependencies": {
-    "normalize-css": "*"
-  }
+  ]
 }
