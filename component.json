@@ -7,6 +7,9 @@
     "LICENSE"
   ],
   "dependencies": {
-  	"normalize-css": "*"
+    "normalize-css": "*"
+  },
+  "devDependencies": {
+    "normalize-css": "*"
   }
 }
