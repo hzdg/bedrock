@@ -6,4 +6,7 @@
     "*.md",
     "LICENSE"
   ],
+  "dependencies": {
+  	"normalize-css": "*"
+  }
 }
