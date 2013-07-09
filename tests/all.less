@@ -3,7 +3,15 @@
 @pie-url: '/path/to/PIE.htc';
 @boxsizing-url: '/path/to/boxsizing.htc';
 
-.t01 { .backface-visibility(hidden) }
+.t01 {
+  .backface-visibility(hidden);
+  .size(100px);
+  .rotate(180deg, X);
+  background: green;
+  &:before {
+    content: 'broken if visible';
+  }
+}
 .t02 { .copyleft() }
 .t03a { .h-padding(1px) }
 .t03b { .v-padding(1px) }
