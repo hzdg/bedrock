@@ -3,14 +3,18 @@
 @pie-url: '/path/to/PIE.htc';
 @boxsizing-url: '/path/to/boxsizing.htc';
 
+.test(@test-text) {
+  &:before {
+    content: '@{test-text}';
+  }
+}
+
 .t01 {
+  .test(Backface Visibility);
   .backface-visibility(hidden);
   .size(100px);
   .rotate(180deg, X);
   background: green;
-  &:before {
-    content: 'broken if visible';
-  }
 }
 .t02 { .copyleft() }
 .t03a { .h-padding(1px) }
