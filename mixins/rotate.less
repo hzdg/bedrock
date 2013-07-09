@@ -5,7 +5,8 @@
 	-o-transform: rotate(@degrees);
 	transform: rotate(@degrees);
 }
-.rotate(@degrees, @axis) {
+.rotate(@degrees, @xy) {
+	@axis: `'@{xy}'.toUpperCase()`;
 	-webkit-transform: ~'rotate@{axis}(@{degrees})';
 	-moz-transform: ~'rotate@{axis}(@{degrees})';
 	-ms-transform: ~'rotate@{axis}(@{degrees})';
