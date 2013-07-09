@@ -5,3 +5,10 @@
 	-o-transform: rotate(@degrees);
 	transform: rotate(@degrees);
 }
+.rotate(@degrees, @axis) {
+	-webkit-transform: ~'rotate@{axis}(@{degrees})';
+	-moz-transform: ~'rotate@{axis}(@{degrees})';
+	-ms-transform: ~'rotate@{axis}(@{degrees})';
+	-o-transform: ~'rotate@{axis}(@{degrees})';
+	transform: ~'rotate@{axis}(@{degrees})';
+}
