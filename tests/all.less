@@ -27,8 +27,18 @@
   .copyleft();
 }
 
-.t03a { .h-padding(1px) }
-.t03b { .v-padding(1px) }
+.t03a {
+  .test(Horizontal Padding);
+  .h-padding(10px);
+  .inline-block();
+}
+
+  .test(Vertical Padding);
+  .v-padding(10px);
+  .inline-block();
+  background-color: @orange;
+}
+
 .t04 { .translate(1px, 1px) }
 .t05 { .background-clip(padding) }
 .t06 { .delay(1s) }
