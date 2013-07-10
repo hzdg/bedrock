@@ -14,12 +14,24 @@
   }
 }
 
+div {
+  .inline-block();
+  color: @black;
+  float: left;
+  height: 50px;
+  &:nth-child(odd) {
+    #transparent .background(@orange, .85);
+  }
+  &:nth-child(even) {
+    #transparent .background(@yellow, .85);
+  }
+}
+
 .t01 {
   .test(Backface Visibility);
   .backface-visibility(hidden);
   .rotate(180deg, X);
   .inline-block();
-  background-color: @orange;
 }
 
 .t02 {
@@ -31,14 +43,12 @@
   .test(Horizontal Padding);
   .h-padding(10px);
   .inline-block();
-  background-color: @orange;
 }
 
 .t03b {
   .test(Vertical Padding);
   .v-padding(10px);
   .inline-block();
-  background-color: @orange;
 }
 
 .t05 { .background-clip(padding) }
