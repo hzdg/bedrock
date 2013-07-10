@@ -51,7 +51,6 @@ div {
   .inline-block();
 }
 
-.t06 { .delay(1s) }
 .t04a {
   .test(Translate);
   .translate(0, 20%);
@@ -66,6 +65,15 @@ div {
   .test(Background Clip);
   .background-clip(padding);
   border: 0.5em rgba(0, 0, 0, 0.5) solid;
+}
+
+.t06 {
+  .test(Transition Delay);
+  .transition(2s all ease-in-out);
+  .delay(5s);
+  &:hover {
+    .opacity(0.5);
+  }
 }
 
 .t07 { .reset-filter() }
