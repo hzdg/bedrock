@@ -76,12 +76,17 @@ div {
   }
 }
 
-.t07 { .reset-filter() }
 .t09 { .background-size(100%) }
 .t11a { #transparent .color(white, .9) }
 .t11a-ie8 {
 	@support-ie8: true;
 	#transparent .color(white, .9);
+.t07 {
+  .test(Reset Filter);
+  #gradient .vertical(#ff0000, #009999);
+  .reset-filter();
+}
+
 .t10 {
   .test(Resize);
   textarea {
