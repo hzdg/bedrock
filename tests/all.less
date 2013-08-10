@@ -76,7 +76,6 @@ div {
   }
 }
 
-.t09 { .background-size(100%) }
 .t11a { #transparent .color(white, .9) }
 .t11a-ie8 {
 	@support-ie8: true;
@@ -85,6 +84,13 @@ div {
   .test(Reset Filter);
   #gradient .vertical(#ff0000, #009999);
   .reset-filter();
+}
+
+.t09 {
+  .test(Background Size);
+  .background-size(80px);
+  background-image: url(http://dummyimage.com/50x50/);
+  background-repeat: no-repeat;
 }
 
 .t10 {
