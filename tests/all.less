@@ -76,10 +76,6 @@ div {
   }
 }
 
-.t11a { #transparent .color(white, .9) }
-.t11a-ie8 {
-	@support-ie8: true;
-	#transparent .color(white, .9);
 .t07 {
   .test(Reset Filter);
   #gradient .vertical(#ff0000, #009999);
@@ -101,12 +97,28 @@ div {
   }
 }
 
+div.t11a {
+  .test(Transparent Color);
+  #transparent .color(white, 0.5);
 }
-.t11b { #transparent .background(black, .9) }
-.t11b-ie8 {
+
+div.t11a.ie8 {
+  .test(ie Transparent Color);
 	@support-ie8: true;
-	#transparent .background(black, .9);
+	#transparent .color(white, 0.5);
 }
+
+div.t11b {
+  .test(Transparent Background);
+  #transparent .background(black, 0.5);
+}
+
+div.t11b.ie8 {
+	.test(ie Transparent Background);
+  @support-ie8: true;
+	#transparent .background(black, 0.5);
+}
+
 .t12 { .border-radius(3px) }
 .t12-pie {
 	@support-pie: true;
