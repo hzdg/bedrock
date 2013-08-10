@@ -78,11 +78,18 @@ div {
 
 .t07 { .reset-filter() }
 .t09 { .background-size(100%) }
-.t10 { .resizable(both) }
 .t11a { #transparent .color(white, .9) }
 .t11a-ie8 {
 	@support-ie8: true;
 	#transparent .color(white, .9);
+.t10 {
+  .test(Resize);
+  textarea {
+    .size(50px, 100px);
+    .resize(none);
+  }
+}
+
 }
 .t11b { #transparent .background(black, .9) }
 .t11b-ie8 {
