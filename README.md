@@ -36,7 +36,7 @@ Both these are false by default. If CSS3PIE support is enabled you should update
 *_default paths above_
 
 ### Legacy Support
-If your testing v1.0.0-wip on an older site simply set the support for ie7 and pie to 'true'. Pre 1.0 had assumed both were supported out of the box.
+If your testing version 0.3.0 or higher on an older site simply set the support for ie7 and pie to 'true'. Pre 0.3.0 had assumed both were supported out of the box. 1.0 will be the tested, production ready version of bedrock.
 
 ## ToDos
 Modularize support for:

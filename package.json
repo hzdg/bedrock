@@ -1,7 +1,7 @@
 {
   "name": "bedrock",
   "description": "a highly unopinionated and minimal front-end baseline built in LESS",
-  "version": "1.0.0-wip",
+  "version": "0.3.0",
   "keywords": [
     "baseline",
     "css",

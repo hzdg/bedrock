@@ -1,6 +1,6 @@
 {
   "name": "bedrock",
-  "version": "1.0.0-wip",
+  "version": "0.3.0",
   "ignore": [
     "tests/",
     "*.md",
