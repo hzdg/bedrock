@@ -3,7 +3,9 @@
 shelljs = require 'shelljs'
 {quote} = require 'shell-quote'
 pkgmeta = require './package'
+bowermeta = require './bower'
 semver = require 'semver'
+{writeFileSync} = require 'fs'
 
 md5 = (data) -> crypto.createHash('md5').update(data).digest('hex')
 exec = (cmd, args) -> shelljs.exec quote([cmd, args...])
@@ -25,9 +27,10 @@ incrementVersion = (level) ->
   else
     oldVersion = pkgmeta.version
     pkgmeta.version = version
+    bowermeta.version = version
 
     writeFileSync './package.json', JSON.stringify(pkgmeta, null, 2)
-    invoke 'build'
+    writeFileSync './bower.json', JSON.stringify(bowermeta, null, 2)
     exec 'git', ['commit', '-a', '-m', "Release #{version}"]
     exec 'git', ['tag', '-a', version, '-m', "Release #{version}"]
 
