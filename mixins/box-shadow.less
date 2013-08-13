@@ -5,7 +5,9 @@
 	box-shadow: @shadow;
 }
 
-.box-shadow(@shadow) when (@support-ie7 = true) {
-	.reset-filter();
-	behavior: url("@{pie-url}");
+.box-shadow(@shadow) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
 }

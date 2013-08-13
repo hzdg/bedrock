@@ -5,120 +5,142 @@
     <meta name="viewport" content="width=device-width">
     <title>Bedrock Tests</title>
     <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
-    <link rel="stylesheet" type="text/css" href="all.css">
+    <link rel="stylesheet/less" type="text/css" href="all.less">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.4.1/less.min.js"></script>
+    <script type="text/javascript">
+        less.env = "development";
+        less.watch();
+    </script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
   </head>
   <body>
-    <div class="t01"></div>
-    <div class="t02"></div>
-    <div class="t03a"></div>
-    <div class="t03b"></div>
-    <div class="t04a"></div>
-    <div class="t04b"></div>
-    <div class="t05"></div>
-    <div class="t06"></div>
-    <div class="t07 ie8"></div>
-    <div class="t08"></div>
-    <div class="t09"></div>
-    <div class="t10">
-        <textarea></textarea>
-    </div>
-    <div class="t11a"></div>
-    <div class="t11a ie8"></div>
-    <div class="t11b"></div>
-    <div class="t11b ie8"></div>
-    <div class="t12"></div>
-    <div class="t13"></div>
-    <div class="t14"></div>
-    <div class="t15"></div>
-    <div class="t16"></div>
-    <div class="t17"></div>
-    <div class="t18"></div>
-    <div class="t19"></div>
-    <div class="t20"></div>
-    <div class="t21"></div>
-    <div class="t22"></div>
-    <div class="t23"></div>
-    <div class="t24"></div>
-    <div class="t25"></div>
-    <div class="t26"></div>
-    <div class="t27"></div>
-    <div class="t28"></div>
-    <div class="t29"></div>
-    <div class="t30"></div>
-    <div class="t31"></div>
-    <div class="t32"></div>
-    <div class="t33"></div>
-    <div class="t34"></div>
-    <div class="t35"></div>
-    <div class="t36"></div>
-    <div class="t37"></div>
-    <div class="t38"></div>
-    <div class="t39"></div>
-    <div class="t40"></div>
-    <div class="t41"></div>
-    <div class="t42"></div>
-    <div class="t43"></div>
-    <div class="t44"></div>
-    <div class="t45"></div>
-    <div class="t46"></div>
-    <div class="t47"></div>
-    <div class="t48"></div>
-    <div class="t49"></div>
-    <div class="t50"></div>
-    <div class="t51"></div>
-    <div class="t52"></div>
-    <div class="t53"></div>
-    <div class="t54"></div>
-    <div class="t55"></div>
-    <div class="t56"></div>
-    <div class="t57"></div>
-    <div class="t58"></div>
-    <div class="t59"></div>
-    <div class="t60"></div>
-    <div class="t61"></div>
-    <div class="t62"></div>
-    <div class="t63"></div>
-    <div class="t64"></div>
-    <div class="t65"></div>
-    <div class="t66"></div>
-    <div class="t67"></div>
-    <div class="t68"></div>
-    <div class="t69"></div>
-    <div class="t70"></div>
-    <div class="t71"></div>
-    <div class="t72"></div>
-    <div class="t73"></div>
-    <div class="t74"></div>
-    <div class="t75"></div>
-    <div class="t76"></div>
-    <div class="t77"></div>
-    <div class="t78"></div>
-    <div class="t79"></div>
-    <div class="t80"></div>
-    <div class="t81"></div>
-    <div class="t82"></div>
-    <div class="t83"></div>
-    <div class="t84"></div>
-    <div class="t85"></div>
-    <div class="t86"></div>
-    <div class="t87"></div>
-    <div class="t88"></div>
-    <div class="t89"></div>
-    <div class="t90"></div>
-    <div class="t91"></div>
-    <div class="t92"></div>
-    <div class="t93"></div>
-    <div class="t94"></div>
-    <div class="t95"></div>
-    <div class="t96"></div>
-    <div class="t97"></div>
-    <div class="t98"></div>
-    <div class="t99"></div>
-    <div class="t100"></div>
-    <div class="t101"></div>
-    <div class="t102"></div>
-    <div class="t103"></div>
-    <div class="t104"></div>
+    <section>
+        <div class="t01"></div>
+        <div class="t02"></div>
+        <div class="t03a"></div>
+        <div class="t03b"></div>
+        <div class="t04a"></div>
+        <div class="t04b"></div>
+        <div class="t05"></div>
+        <div class="t06"></div>
+        <div class="t07 ie8"></div>
+        <div class="t08"></div>
+        <div class="t09"></div>
+        <div class="t10">
+            <textarea></textarea>
+        </div>
+        <div class="t11a"></div>
+        <div class="t11a ie8"></div>
+        <div class="t11b"></div>
+        <div class="t11b ie8"></div>
+        <div class="t12"></div>
+        <div class="t12 pie"></div>
+        <div class="t13a"></div>
+        <div class="t13b"></div>
+        <div class="t13c"></div>
+        <div class="t13d"></div>
+        <div class="t13e"></div>
+        <div class="t13f"></div>
+        <div class="t13g"></div>
+        <div class="t14"></div>
+        <div class="t15">
+            <form>
+                <fieldset>
+                    <legend>legend</legend>
+                    <input type="text" placeholder="text">
+                    <input type="date" placeholder="date">
+                    <input type="datetime" placeholder="datetime">
+                    <input type="datetime-local" placeholder="datetime-local">
+                    <input type="email" placeholder="email">
+                    <input type="month" placeholder="month">
+                    <input type="number" placeholder="number">
+                    <input type="password" placeholder="password">
+                    <input type="search" placeholder="search">
+                    <input type="tel" placeholder="tel">
+                    <input type="time" placeholder="time">
+                    <input type="url" placeholder="url">
+                    <input type="week" placeholder="week">
+                </fieldset>
+                <fieldset>
+                    <select>
+                        <option>selectbox</option>
+                        <option value="option">option</option>
+                    </select>
+                    <textarea>textarea</textarea>
+                </fieldset>
+                <fieldset>
+                    <input type="button" value="input button">
+                    <input type="reset" value="reset">
+                    <input type="submit" value="submit">
+                </fieldset>
+                <button>button</button>
+            </form>
+        </div>
+        <div class="t16"></div>
+        <div class="t16 pie"></div>
+        <div class="t17">
+            You are an equan&shy;imity and generally an excog&shy;itate gasco&shy;nading idio&shy;syncratic.
+        </div>
+        <div class="t18"></div>
+        <div class="t19">
+            <ul>
+                <li>list item</li>
+                <li>list item</li>
+            </ul>
+        </div>
+        <div class="t20">
+            All tests utilize box sizing
+        </div>
+        <div class="t20 ie7">
+            All tests utilize box sizing
+        </div>
+        <div class="t21">
+            <div>i'm hidden</div>
+        </div>
+        <div class="t22"></div>
+        <div class="t23">
+            select me
+        </div>
+        <div class="t24">
+            <div>center</div>
+        </div>
+        <div class="t25"></div>
+        <div class="t25 ie7"></div>
+        <div class="t26"></div>
+        <div class="t27">
+            <div class="row">
+                <div class="cell">boom</div>
+            </div>
+        </div>
+        <div class="t27 ie7">
+            <div class="row">
+                <div class="cell">boom</div>
+            </div>
+        </div>
+        <div class="t28">
+            <div>
+                <span>float</span>
+                <span>float</span>
+            </div>
+        </div>
+        <div class="t28 ie7">
+            <div>
+                <span>float</span>
+                <span>float</span>
+            </div>
+        </div>
+        <div class="t29a"></div>
+        <div class="t29b"></div>
+        <div class="t30"></div>
+        <div class="t31">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="t32"></div>
+        <div class="t32 ie8"></div>
+        <div class="t33"></div>
+    </section>
+    <footer>
+        sticky footer
+    </footer>
   </body>
 </html>

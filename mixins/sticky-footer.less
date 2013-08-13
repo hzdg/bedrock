@@ -7,13 +7,7 @@
 //	div:first-child in lieu of :after psuedo class support.
 // ------------------------------------------------
 
-.sticky-footer(@height) {
-
-	.hundo () {
-		min-height: 100%;
-		height: auto !important;
-		height: 100%;
-	}
+.sticky-footer(@height, @wrapper: ~"> div:first-child") {
 
 	.push () {
 		height: @height;
@@ -23,15 +17,14 @@
 		content: '';
 	}
 
-	html {
-		.hundo();
+	html, body {
+		height: 100%;
 	}
 
 	body {
-		.hundo();
 
-		> div:first-child {
-			.hundo();
+	    @{wrapper} {
+			min-height: 100%;
 			margin-bottom: -@height;
 
 			&:after {
@@ -43,4 +36,11 @@
 			height: @height;
 		}
 	}
+  
+  .check-support () when (@support-ie7 = true) {
+    .@{ie7-class} .push {
+    	.push();
+    }
+  }
+  .check-support();
 }
