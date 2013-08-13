@@ -21,6 +21,7 @@
     "type": "git",
     "url": "https://github.com/aebsr/bedrock.git"
   },
+  "readmeFilename": "README.md",
   "licenses": [
     {
       "type": "WTFPL",
