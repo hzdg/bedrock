@@ -3,21 +3,20 @@
 //	spritesheets, using different methods.
 // ------------------------------------------------
 
+@import './inline-block';
+@import './replace-text';
+
+
 #sprite {
 	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
-		display: inline-block;
+		.inline-block();
+		.replace-text();
+
 		background-image: @image;
 		background-repeat: no-repeat;
 		background-position: -@sprite-x -@sprite-y;
 		width: @sprite-width;
 		height: @sprite-height;
-
-		// Hide text. Same as the .replace-text() mixin but duplicated so the
-		// user doesn't get things they didn't want by importing the "sprites"
-		// file.
-		text-indent: 100%;
-		overflow: hidden;
-		white-space: nowrap;
 	}
 
 	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
