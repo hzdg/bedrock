@@ -22,14 +22,14 @@
 	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
 		&:before {
 			content: '';
-			.sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
 		}
 	}
 
 	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
 		&:after {
 			content: '';
-			.sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
 		}
 	}
 }
