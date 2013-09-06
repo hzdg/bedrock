@@ -1,7 +1,7 @@
 {
   "name": "bedrock",
   "description": "a highly unopinionated and minimal front-end baseline built in LESS",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "devDependencies": {
     "coffee-script": "~1.6.2",
     "shell-quote": "~0.0.1",
