@@ -1,0 +1,18 @@
+// placeholder mixin
+// usage
+// #selector {
+//   .placeholder-styles() {
+//     color: red;
+//   }
+//   .placeholder(~'[type="name"]');
+// }
+.placeholder (@el:~'[placeholder]') {
+  @{el}::-webkit-input-placeholder { .placeholder-styles; }
+  @{el}:-ms-input-placeholder { .placeholder-styles; }
+  @{el}::input-placeholder { .placeholder-styles; }
+  @{el}:input-placeholder { .placeholder-styles; }
+  @{el}::-moz-placeholder { .placeholder-styles; }
+  @{el}:-moz-placeholder { .placeholder-styles; }
+  @{el}::placeholder { .placeholder-styles; }
+  @{el}:placeholder { .placeholder-styles; }
+}
