@@ -1,0 +1,35 @@
+// ------------------------------------------------
+//	A collection of mixins for working with
+//	spritesheets, using different methods.
+// ------------------------------------------------
+
+@import './inline-block';
+@import './replace-text';
+
+
+#sprite {
+	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		.inline-block();
+		.replace-text();
+
+		background-image: @image;
+		background-repeat: no-repeat;
+		background-position: -@sprite-x -@sprite-y;
+		width: @sprite-width;
+		height: @sprite-height;
+	}
+
+	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:before {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+
+	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:after {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+}
