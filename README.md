@@ -64,4 +64,5 @@ Modularize support for:
 
 ## Change Log
 **1.2.0** .size() mixin takes width before height, following traditional syntax. Also added .placeholder() mixin.
+
 **1.3.0** #sprite mixin set added
