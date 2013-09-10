@@ -1,0 +1,18 @@
+// animation mixin
+// usage
+// #selector {
+//   .keyframes() {
+//     from { background-color: red; }
+//     to { background-color: purple; }
+//   }
+//   .animation(4s linear infinite alternate, none);
+// }
+.animation (@animation; @fillmode: both) {
+	@-webkit-keyframes keyframes { .keyframes; }
+	@-o-keyframes keyframes { .keyframes; }
+	@keyframes keyframes { .keyframes; }
+	-webkit-animation: keyframes @animation;
+	animation: keyframes @animation;
+	-webkit-animation-fill-mode: @fillmode;
+	animation-fill-mode: @fillmode;
+}

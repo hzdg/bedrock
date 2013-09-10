@@ -387,3 +387,13 @@ div.t34 {
   .test(Sprite);
   #sprite .after(~"url('http://dummyimage.com/50x20/000000/ffffff&text=image')", 10px, 10px, 12px, 8px);
 }
+
+div.t35 {
+  .test(Animation);
+  .keyframes () {
+    from { background-color: red; }
+    50% { background-color: lightyellow; }
+    to { background-color: purple; }
+  };
+  .animation(3s ease-in-out infinite alternate, none);
+}
