@@ -1,18 +1,18 @@
 // placeholder mixin
 // usage
-// #selector {
-//   .placeholder-styles() {
-//     color: red;
-//   }
-//   .placeholder(~'[type="name"]');
-// }
-.placeholder (@el:~'[placeholder]') {
-  @{el}::-webkit-input-placeholder { .placeholder-styles; }
-  @{el}:-ms-input-placeholder { .placeholder-styles; }
-  @{el}::input-placeholder { .placeholder-styles; }
-  @{el}:input-placeholder { .placeholder-styles; }
-  @{el}::-moz-placeholder { .placeholder-styles; }
-  @{el}:-moz-placeholder { .placeholder-styles; }
-  @{el}::placeholder { .placeholder-styles; }
-  @{el}:placeholder { .placeholder-styles; }
+//     input {
+//         .placeholder-styles() {
+//             color: red;
+//         }
+//         .placeholder();
+//     }
+.placeholder() {
+  &::-webkit-input-placeholder { .placeholder-styles; }
+  &:-ms-input-placeholder { .placeholder-styles; }
+  &::input-placeholder { .placeholder-styles; }
+  &:input-placeholder { .placeholder-styles; }
+  &::-moz-placeholder { .placeholder-styles; }
+  &:-moz-placeholder { .placeholder-styles; }
+  &::placeholder { .placeholder-styles; }
+  &:placeholder { .placeholder-styles; }
 }
