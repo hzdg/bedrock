@@ -1,0 +1,18 @@
+// Usage
+// .ir(16.6667%, 430/380) - generates a box at 430 by 380 that is 1/6 of the screen width
+// .ir(25%, 1.6) - creates an 8 by 5 box that is 1/4 of the screen width
+// .ir(33.3334%, 8, 5) - creates an 8 by 5 box that is 1/3 of the screen width
+// .ir(100%, 16/9) - creates 16 by 9 box that is 100% of the screen width
+// as seen on http://alistapart.com/article/creating-intrinsic-ratios-for-video
+
+.ir(@width, @ratio) {
+	// calculate ratios by dividing width/height
+	// so a 16x9 box would be 16/9 = 1.777777778
+	width: unit(@width, ~'%');
+	height: 0;
+	padding-bottom: unit(@width / @ratio, ~'%');
+}
+
+.ir(@width, @ratio-width, @ratio-height) {
+ .ir(@width, unit(@ratio-width) / unit(@ratio-height));
+}
