@@ -2,8 +2,9 @@
 
 Bedrock is a highly un-opinionated and minimal front-end toolset built in LESS by [aebsr]
 
-Frameworks are too limiting. If your truly handwriting code only so much of it can be reused. Your classnames, IDs and markup structure should match what's best for the project. Bedrock attempts to avoid telling how to write your code and instead allows you to just write it.
 [aebsr]: http://github.com/aebsr
+
+Framework-free, Bedorock attemps to avoid telling how to write your code and instead allows you to just write it.
 
 ## Quick Start
 
