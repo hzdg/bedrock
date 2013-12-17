@@ -65,8 +65,11 @@ Modularize support for:
 * blackberry browser >7.0
 
 ## Change Log
-**1.2.0** .size() mixin takes width before height, following traditional syntax. Also added .placeholder() mixin.
 
+- **1.2.0**
+    - .size() mixin takes width before height, following traditional syntax.
+    - Also added .placeholder() mixin.
 - **1.3.0** #sprite mixin set added
 - **1.4.0** .ir() Intrinsic Ratio mixin.
 - **1.5.0** adding .transition-duration() .transition-property() and .transition-delay() mixin. Deprecating .delay()
+- **1.6.0** adding .font-size() mixin to generate pixel and rem based font sizes.

@@ -3,6 +3,9 @@
 @pie-url: '/path/to/PIE.htc';
 @boxsizing-url: '/path/to/boxsizing.htc';
 
+// For Test 36 - .font-size()
+.establish-font-size(16px);
+
 // Bedrock Color
 @orange: rgb(246, 134, 50);
 @yellow: rgb(255, 240, 61);
@@ -391,4 +394,9 @@ div.t34 {
 div.t35 {
   .test(Intrinsic Ratio);
   .ir(50%, 16/9);
+}
+
+div.t36 {
+  .test(Font Size);
+  .font-size(30px);
 }
