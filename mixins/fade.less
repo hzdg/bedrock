@@ -1,0 +1,17 @@
+.fade-to(@time:.3s, @opacity:70) {
+    .opacity(@opacity);
+    transition: opacity @time ease-in-out;
+    -moz-transition: opacity @time ease-in-out;
+    -webkit-transition: opacity @time ease-in-out;
+    //fix an image positioning issue in chrome
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.fade-in(@time:.3s) {
+    .fade-to(@time; @opacity:100);
+}
+
+.fade-out(@time:.3s) {
+    .fade-to(@time; @opacity:0);
+}
