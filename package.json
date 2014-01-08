@@ -1,7 +1,7 @@
 {
   "name": "bedrock",
   "description": "a highly unopinionated and minimal front-end toolset built in LESS",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "devDependencies": {
     "grunt-bump": "0.0.13",
     "grunt": "~0.4.2"
