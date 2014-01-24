@@ -1,13 +1,14 @@
-// ------------------------------------------------
-//	A collection of mixins for working with
-//	spritesheets, using different methods.
-// ------------------------------------------------
-
 @import './inline-block';
 @import './replace-text';
+/*
+###Sprites
 
-
+A collection of mixins for working with spritesheets, using different methods.
+*/
 #sprite {
+/*
+###.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)
+*/
 	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
 		.inline-block();
 		.replace-text();
@@ -19,13 +20,18 @@
 		height: @sprite-height;
 	}
 
+/*
+###.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)
+*/
 	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
 		&:before {
 			content: '';
 			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
 		}
 	}
-
+/*
+###.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)
+*/
 	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
 		&:after {
 			content: '';

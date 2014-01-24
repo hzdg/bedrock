@@ -19,7 +19,7 @@ Out of the box, Bedrock supports IE9 up. But it is [CSS3PIE](http://css3pie.com)
 
 ### Enable Support
 
-```
+```css
 @support-ie7: true;
 @support-ie8: true;
 @support-pie: true;
@@ -27,17 +27,20 @@ Out of the box, Bedrock supports IE9 up. But it is [CSS3PIE](http://css3pie.com)
 *The above support vars are set to false by default*
 
 ### Declaring Paths
+
 #### CSS3Pie
+
 If `@support-pie` is set to `true`, you will want to declare your path to your .htc file. *The default is:*
 
-```
+
+```css
 @pie_url: '/PIE.htc';
 ```
 
 #### Boxsizing
 If `@support-ie7` is set to `true`, you will need to declare your path the box sizing polyfill. *The default is:*
 
-```
+```css
 @boxsizing_url: '/boxsizing.htc';
 ```
 
@@ -45,7 +48,7 @@ If `@support-ie7` is set to `true`, you will need to declare your path the box s
 If updating a pre Bedrock 1.0.0 website enable IE7 & IE8.
 
 ## Example
-```
+```css
 @import 'bower_components/bedrock/bedrock';
 @support-ie8: true;
 

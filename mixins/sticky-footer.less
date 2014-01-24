@@ -1,12 +1,12 @@
-// ------------------------------------------------
-//	Sticky Footer
-//	Required: declare height
-//
-//	By default the mixin does not support IE7. To extend
-//	support add <div class="push"></div> after your
-//	div:first-child in lieu of :after psuedo class support.
-// ------------------------------------------------
+/*
+###Sticky Footer
 
+Required: declare height
+
+By default the mixin does not support IE7. To extend
+support add <div class="push"></div> after your
+div:first-child in lieu of :after psuedo class support.
+*/
 .sticky-footer(@height, @wrapper: ~"> div:first-child") {
 
 	.push () {
@@ -36,7 +36,7 @@
 			height: @height;
 		}
 	}
-  
+
   .check-support () when (@support-ie7 = true) {
     .@{ie7-class} .push {
     	.push();

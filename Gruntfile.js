@@ -11,8 +11,33 @@ module.exports = function (grunt) {
                 commitFiles: ['-a'],
                 push: false
             }
+        },
+        concat: {
+            options: {
+
+            },
+            dist: {
+                src: ['mixins/*.less', '!mixins/mixins.less', '!mixins/env.less'],
+                dest: 'mixins/_mixins.less'
+            }
+
+
+        },
+        styledocco: {
+            dist: {
+                options: {
+                    name: 'Bedrock'
+                },
+                files: {
+                    'docs': ['mixins/_mixins.less']
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks('grunt-styledocco');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+
+    grunt.registerTask('build', ['concat', 'styledocco']);
 };
