@@ -1,3 +1,6 @@
+/*
+###.rotate(@degrees)
+*/
 .rotate(@degrees) {
 	-webkit-transform: rotate(@degrees);
 	-moz-transform: rotate(@degrees);
@@ -5,6 +8,9 @@
 	-o-transform: rotate(@degrees);
 	transform: rotate(@degrees);
 }
+/*
+###.rotate(@degrees, @xy)
+*/
 .rotate(@degrees, @xy) {
 	@axis: `'@{xy}'.toUpperCase()`;
 	-webkit-transform: ~'rotate@{axis}(@{degrees})';

@@ -1,17 +1,27 @@
-// Usage
-// Establish your base font size in your project root: .establish-font-size(10px);
-// Then declare element fontsize like so
-// div {
-//     .font-size(15px);
-// }
-// This will generate a rule that the element should be
-// in pixels and it's rem equivalent
-
+/*
+###.font-size(@px)
+*/
 .font-size(@px) when (ispixel(@px)) {
 	font-size: @px; // Fallback for browsers that don't like rem
 	font-size: unit(@px / @base-font-size, rem);
 }
+/*
+###.establish-font-size(@px)
 
+Generates a rule that the element should be in pixels and it's rem equivalent
+
+**Usage**
+
+Establish your base font size in your project root: ```.establish-font-size(10px);```
+
+Then declare your element's font-size:
+
+```css
+div {
+    .font-size(15px);
+}
+```
+*/
 .establish-font-size(@px) {
 	@base-font-size: @px;
 
