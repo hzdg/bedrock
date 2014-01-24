@@ -17,8 +17,8 @@ module.exports = function (grunt) {
 
             },
             dist: {
-                src: ['mixins/*.less', '!mixins/all.less', '!mixins/env.less'],
-                dest: 'mixins/all.less'
+                src: ['mixins/*.less', '!mixins/mixins.less', '!mixins/env.less'],
+                dest: 'mixins/_mixins.less'
             }
 
 
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                     name: 'Bedrock'
                 },
                 files: {
-                    'docs': ['mixins/all.less']
+                    'docs': ['mixins/_mixins.less']
                 }
             }
         }
