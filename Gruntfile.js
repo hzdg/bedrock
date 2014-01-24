@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
             },
             dist: {
-                src: ['mixins/*.less', '!mixins/all.less'],
+                src: ['mixins/*.less', '!mixins/all.less', '!mixins/env.less'],
                 dest: 'mixins/all.less'
             }
 
