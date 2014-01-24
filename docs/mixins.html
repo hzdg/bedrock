@@ -1,0 +1,3266 @@
+<!DOCTYPE html><html><head><title>mixins | Bedrock
+</title><meta charset="utf-8"><style>*{-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;border:0}body{padding:60px 0 40px;background-color:hsl(207,10%,90%);color:hsl(207,5%,30%)}.container{max-width:1300px;margin:0 auto;padding:0 20px}.section{position:relative;margin-bottom:20px}.docs{position:relative;z-index:2;width:68%;min-height:200px;background-color:hsl(207,0%,100%);background-clip:padding-box;border:1px solid hsla(207,5%,5%,.1);border-radius:5px;box-shadow:0 0 3px hsla(207,5%,5%,.1)}.code{position:absolute;top:5px;bottom:5px;right:0;z-index:1;width:33%;padding:10px 10px 10px 20px;border-radius:0 5px 5px 0;border:1px solid hsla(207,20%,10%,.1);background-color:hsla(207,20%,95%,.9);background-clip:padding-box;opacity:.5;-webkit-transition:opacity .4s;-moz-transition:opacity .4s;-o-transition:opacity .4s;transition:opacity .4s}.code:hover{opacity:1}.preview{background:hsl(207,0%,100%);border-top:1px solid hsl(207,30%,95%);position:relative;z-index:1}.preview-code+.preview{margin-top:0;border-top:0}.preview iframe{display:block;width:100%;height:100%;overflow:hidden}.preview-code{position:relative;z-index:2;display:block;width:100%;color:hsl(207,9%,37%);max-height:200px;padding:10px 20px;overflow-y:auto;background:hsl(207,30%,95%);border:1px solid hsl(207,30%,85%);border-left:0;border-right;box-shadow:inset 0 1px 2px hsla(207,30%,10%,.1);line-height:1.1!important;resize:none}.preview-code:focus{outline:0;background:hsl(207,30%,97%);box-shadow:inset 0 1px 2px hsla(207,30%,10%,.1),0 0 5px hsla(207,75%,75%,.9)}.preview-code:last-child{border-bottom:0;border-radius:0 0 5px 5px}.resizeable{padding:15px;overflow:auto;background:hsl(207,0%,100%);box-shadow:0 0 2px hsla(207,10%,20%,.2);resize:both}.preview-code,pre{white-space:pre-wrap;word-wrap:break-word;overflow-y:auto}.code pre{height:100%;margin-top:0}.bar{position:fixed;left:0;right:0;z-index:1010;min-height:40px;line-height:40px;background-image:-webkit-linear-gradient(hsla(207,10%,35%,.97),hsla(207,5%,25%,.92));background-image:-moz-linear-gradient(hsla(207,10%,35%,.97),hsla(207,5%,25%,.92));background-image:-o-linear-gradient(hsla(207,10%,35%,.97),hsla(207,5%,25%,.92));background-image:linear-gradient(hsla(207,10%,35%,.97),hsla(207,5%,25%,.92))}.bar.top{top:0;box-shadow:0 1px 2px hsla(207,5%,0%,.2)}.bar.bottom{bottom:0;box-shadow:0 -1px 2px hsla(207,5%,0%,.2)}.bar ul{margin:0!important}.bar li{display:block;list-style:none}.bar .icon path{fill:hsla(27,10%,75%,.75)}.docs .icon path{fill:hsla(207,10%,75%,.5)}.docs .permalink:hover .icon path{fill:hsl(207,10%,75%)}.bar button{color:hsla(27,10%,75%,.75)}.bar button:hover .icon path,.bar button.is-active .icon path{fill:hsl(27,10%,85%)}.bar button:hover,.bar button.is-active{color:hsl(27,10%,85%)}.bar .icon{vertical-align:middle;display:inline-block}.bar,.bar a,.bar a:visited{color:hsl(27,10%,85%);text-shadow:1px 1px 0 hsla(27,5%,0%,.5)}.bar a:hover,.bar a.is-active{color:hsl(27,10%,95%);text-shadow:1px 1px 0 hsla(27,5%,0%,1);text-decoration:none}.brand{float:left;margin-right:20px;font-weight:700;font-size:16px;text-decoration:none}.brand,a.brand,a.brand:visited{color:hsl(27,5%,5%);text-shadow:1px 1px 0 hsla(27,5%,100%,.2)}.brand:hover,a.brand:hover{color:hsl(27,5%,0%);text-shadow:1px 1px 0 hsla(27,5%,100%,.3);text-decoration:none}.menu{font-size:12px}.menu>li{float:left;position:relative}.menu a{display:block;margin-right:15px}.dropdown-toggle{position:relative;padding-right:15px}.dropdown-toggle:after{display:block;position:absolute;right:0;top:18px;content:'';border:4px solid;border-left-color:transparent;border-right-color:transparent;border-bottom-color:transparent}.nav-results,.dropdown{position:absolute;z-index:1020;top:32px;left:-16px;width:175px;max-height:500px;padding:10px 0;overflow-y:auto;word-wrap:break-word;font-size:11px;line-height:20px;background-color:hsla(207,10%,25%,.97);border:1px solid hsla(207,5%,70%,.3);border-radius:3px;box-shadow:0 0 3px hsla(207,5%,0%,.2)}.toc-list{width:200px}.nav-results{right:0;width:200px;left:auto;padding:5px 0}.nav-results-filename{display:block;font-size:10px;opacity:.75}.nav-results a{display:block;line-height:15px;padding:5px 10px}.nav-results li:not([hidden])~li a{border-top:1px solid hsla(27,10%,90%,.1)}.dropdown a{padding:0 15px}.dropdown li:hover{background-color:hsl(207,10%,22%)}.nav{float:right;position:relative}.nav input[type="search"]{padding:2px 4px;color:#fff;width:150px;border:1px solid hsla(207,5%,0%,.3);background:hsla(207,12%,40%,.9);box-shadow:inset 1px 1px 3px hsla(207,5%,0%,.05),1px 1px 0 hsla(207,5%,100%,.05);border-radius:10px;-webkit-appearance:textfield}.nav input[type="search"]:focus{outline:0;background:hsla(207,7%,45%,.9)}.settings{text-align:center}.bar button{display:inline-block;vertical-align:middle;padding:0 5px;margin:0 3px;background:transparent}.bar button:first-child{margin-left:0}.settings .auto{line-height:32px;font-size:11px;font-weight:700;letter-spacing:-1px;text-shadow:none;text-transform:uppercase}body{font-family:sans-serif;font-size:14px;line-height:1.618}.docs pre,p,ol,ul,dl,figure,blockquote,table{margin-left:20px;margin-right:20px}.preview,.docs pre,p,ol,ul,dl,figure,blockquote,table{margin-top:10px}ul ul,ol ol,ul ol,ol ul,blockquote p:last-child{margin-top:0}ul,ol{padding-left:1.5em}p:last-child,ol:last-child,ul:last-child,dl:last-child{margin-bottom:20px}hr,h1,h2,h3,h4,h5,h6{margin:1em 20px .5em}h1:first-of-type{margin-top:20px}h1,h2,h3,h4,h5,h6{line-height:1.2;color:hsl(207,10%,50%)}h1 a,h1 a:hover,h1 a:visited{color:inherit;text-decoration:inherit}h1{font-size:3.052em;font-weight:400;color:hsl(207,10%,45%)}h2{font-size:1.953em}h3{font-size:1.536em}h1,h2,h3{letter-spacing:-.025em}h4{font-size:1.25em}h5{font-size:1em;text-transform:uppercase}h6{font-size:1em}.permalink{position:absolute;top:15px;right:15px}a{color:hsl(207,90%,50%);text-decoration:none}a:hover{color:hsl(207,95%,40%);text-decoration:underline}a:visited{color:hsl(207,100%,35%)}.preview-code,pre,code,var{font-style:normal;font-family:"Ubuntu Mono","Andale Mono","DejaVu Sans Mono","Monaco","Bitstream Vera Sans Mono","Consolas","Lucida Console",monospace;font-size:12px}.docs pre,code,var{padding:.1em 3px;background:hsla(207,5%,0%,.025);border:1px solid hsla(207,5%,0%,.05);border-radius:3px}.code pre{line-height:1.1!important}pre code{padding:0;background:transparent;border:0}.cf:before,.cf:after{content:'';display:table}.cf:after{clear:both}[unselectable="on"]{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}[hidden]{display:none!important}small{font-size:85%;opacity:.9}</style><script type="text/preview">(function(){"use strict";var a=function(a){return Array.prototype.slice.call(a)},b=document.getElementsByTagName("body")[0],c=["link","visited","hover","active","focus","target","enabled","disabled","checked"],d=new RegExp(":(("+c.join(")|(")+"))","gi"),e=a(document.styleSheets).map(function(b){return a(b.cssRules).filter(function(a){return a.selectorText&&a.selectorText.match(d)}).map(function(a){return a.cssText.replace(d,".\\3A $1")}).join("")}).join("");if(e.length){var f=document.createElement("style");f.innerText=e;var g=document.getElementsByTagName("style")[0];g.parentNode.insertBefore(f,g)}var h=function(){var a=window.getComputedStyle(b,null);return function(){if(b.childElementCount===0)return b.offsetHeight;var c=b.getElementsByTagName("*"),d=[];for(var e=0,f=c.length;e<f;e++)d.push(c[e].offsetTop+c[e].offsetHeight+parseInt(window.getComputedStyle(c[e],null).getPropertyValue("margin-bottom")));var g=Math.max.apply(Math,d);return g+=parseInt(a.getPropertyValue("padding-bottom"),10),Math.max(g,b.offsetHeight)}}(),i={getHeight:function(){window.parent.postMessage({height:h()},"*")}};window.addEventListener("message",function(a){if(a.data==null)return;typeof a.data=="string"&&i[a.data]()},!1)})()</script></head><body><nav class="bar top cf"><div class="container"><a href="index.html" class="brand">Bedrock</a><ul class="menu"><li><a href="mixins.html">mixins</a></li></ul><div class="nav"><button title="Table of Contents" data-toggle="nav-toc"><svg viewBox="0 0 512 512" height="22" width="22" class="icon"><path d="M108.9,403.1V462H50v-58.9H108.9z M108.9,285.4H50v58.9h58.9V285.4zM108.9,50H50v58.9h58.9V50z M108.9,167.7H50v58.9h58.9V167.7z M167.7,344.3H462v-58.9H167.7V344.3zM167.7,50v58.9H462V50H167.7z M167.7,462H462v-58.9H167.7V462z M167.7,226.6H462v-58.9H167.7V226.6z"></path></svg></button><input type="search" placeholder="Search" class="search"></div></div></nav><section class="container"><article id="backfacevisibility" class="section"><div class="docs"><a href="#backfacevisibility" class="permalink"><svg viewBox="0 0 512 512" height="32" width="32" class="icon"><path d="M156.2,199.7c7.5-7.5,15.9-13.8,24.8-18.7c49.6-27.3,113.1-12.8,145,35.5l-38.5,38.5c-11.1-25.2-38.5-39.6-65.8-33.5c-10.3,2.3-20.1,7.4-28,15.4l-73.9,73.9c-22.4,22.4-22.4,58.9,0,81.4c22.4,22.4,58.9,22.4,81.4,0l22.8-22.8c20.7,8.2,42.9,11.5,64.9,9.9l-50.3,50.3c-43.1,43.1-113,43.1-156.1,0c-43.1-43.1-43.1-113-0-156.1L156.2,199.7z M273.6,82.3l-50.3,50.3c21.9-1.6,44.2,1.6,64.9,9.9l22.8-22.8c22.4-22.4,58.9-22.4,81.4,0c22.4,22.4,22.4,58.9,0,81.4l-73.9,73.9c-22.5,22.5-59.1,22.3-81.4,0c-5.2-5.2-9.7-11.7-12.5-18l-38.5,38.5c4,6.1,8.3,11.5,13.7,16.9c13.9,13.9,31.7,24.3,52.1,29.3c26.5,6.4,54.8,2.8,79.2-10.6c8.9-4.9,17.3-11.1,24.8-18.7l73.9-73.9c43.1-43.1,43.1-113,0-156.1C386.6,39.2,316.7,39.2,273.6,82.3z"></path></svg></a><h3 id="backfacevisibility">.backface-visibility()</h3>
+<p>Prevent browsers from flickering when using CSS 3D transforms. Default value is <code>visible</code>, but can be changed to <code>hidden</code>.</p>
+<p>See git pull <a href="https://github.com/dannykeane/bootstrap.git">https://github.com/dannykeane/bootstrap.git</a> backface-visibility for examples</p>
+<h3 id="backgroundclip">.background-clip()</h3>
+<p>Note: FF 3.6 and under need &quot;padding&quot; instead of &quot;padding-box&quot;</p>
+<h3 id="backgroundsizesize">.background-size(@size)</h3>
+<h3 id="borderradiusradius">.border-radius(@radius)</h3>
+<h3 id="boxshadowshadow">.box-shadow(@shadow);</h3>
+<h3 id="boxsizingboxmodel">.box-sizing(@boxmodel)</h3>
+<h3 id="centerblock">.center-block()</h3>
+<p>Horizontally center a block element.</p>
+<h3 id="clearfix">.clearfix();</h3>
+<h3 id="columnscolumncount-columngap">.columns(@columnCount, @columnGap)</h3>
+<p>CSS3 Content Columns</p>
+<h3 id="copyleft">.copyleft()</h3>
+<p>Wikipedia: <a href="http://en.wikipedia.org/wiki/Copyleft">http://en.wikipedia.org/wiki/Copyleft</a></p>
+<p><span class="copyleft">&copy;</span></p>
+<h3 id="delay">.delay()</h3>
+<p>Note: this is deprecated</p>
+<h3 id="fontsizepx">.font-size(@px)</h3>
+<h3 id="establishfontsizepx">.establish-font-size(@px)</h3>
+<p>Generates a rule that the element should be in pixels and it&#39;s rem equivalent</p>
+<p><strong>Usage</strong></p>
+<p>Establish your base font size in your project root: <code>.establish-font-size(10px);</code></p>
+<p>Then declare your element&#39;s font-size:</p>
+<pre><code class="lang-css">div {
+    .font-size(15px);
+}</code></pre>
+<h3 id="gradients">Gradients</h3>
+<p>Based on Twitter Bootstrap
+<a href="https://github.com/twbs/bootstrap/">https://github.com/twbs/bootstrap/</a></p>
+<h4 id="horizontalstartcolor-endcolor-startpercent-endpercent">.horizontal(@start-color; @end-color; @start-percent; @end-percent;)</h4>
+<p>Horizontal gradient, from left to right.</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p>@start-color: #555;
+@end-color: #333;
+@start-percent: 0%;
+@end-percent: 100%</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="verticalstartcolor-endcolor-startpercent-endpercent">.vertical(@start-color; @end-color; @start-percent; @end-percent;);</h4>
+<p>Vertical gradient, from top to bottom</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="directionalstartcolor-555-endcolor-333-deg-45deg">.directional(@start-color: #555; @end-color: #333; @deg: 45deg);</h4>
+<h4 id="horizontalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="verticalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="radialinnercolor-555-outercolor-333">.radial(@inner-color: #555; @outer-color: #333)</h4>
+<h4 id="stripedcolor-555-angle-45deg">.striped(@color: #555; @angle: 45deg)</h4>
+<h3 id="hyphensmode-auto">.hyphens(@mode: auto)</h3>
+<p>Optional hyphenation</p>
+<h3 id="inlineblock">.inline-block()</h3>
+<p>Better { display: Inline-block }</p>
+<h3 id="irwidth-ratio">.ir(@width, @ratio)</h3>
+<p>Intrinsic ratios</p>
+<p><strong>Examples</strong></p>
+<p><code>.ir(16.6667%, 430/380)</code>: generates a box at 430 by 380 that is 1/6 of the screen width</p>
+<p><code>.ir(25%, 1.6)</code>: creates an 8 by 5 box that is 1/4 of the screen width</p>
+<p><code>.ir(33.3334%, 8, 5)</code>: creates an 8 by 5 box that is 1/3 of the screen width</p>
+<p><code>.ir(100%, 16/9)</code>: creates 16 by 9 box that is 100% of the screen width
+as seen on <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video">http://alistapart.com/article/creating-intrinsic-ratios-for-video</a></p>
+<h3 id="hmarginval">.h-margin(@val)</h3>
+<p>Shortcut for setting a horizontal margin</p>
+<h3 id="vmarginval">.v-margin(@val)</h3>
+<p>Shortcut for setting a vertical margin</p>
+<h3 id="opacityopacity">.opacity(@opacity)</h3>
+<h3 id="hpaddingval">.h-padding(@val)</h3>
+<p>Shortcut for setting padding on the left and right of an element.</p>
+<h3 id="vpaddingval">.v-padding(@val)</h3>
+<p>Shortcut for setting padding on the top and bottom of an element.</p>
+<h3 id="placeholder">.placeholder()</h3>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-css">input {
+    .placeholder-styles() {
+        color: red;
+    }
+    .placeholder();
+}</code></pre>
+<h3 id="replacetext">.replace-text()</h3>
+<p>Image Replacement
+Kullem Method: <a href="http://bit.ly/RyNnoz">http://bit.ly/RyNnoz</a>
+Element must be display block or inline-block</p>
+<h3 id="resetfilter">.reset-filter()</h3>
+<p>Reset filters for IE</p>
+<h3 id="resizedirection">.resize(@direction)</h3>
+<p>Resize anything</p>
+<h3 id="rotatedegrees">.rotate(@degrees)</h3>
+<h3 id="rotatedegrees-xy">.rotate(@degrees, @xy)</h3>
+<h3 id="scaleratio">.scale(@ratio)</h3>
+<h3 id="scalex-y">.scale(@x, @y)</h3>
+<h3 id="sizesize">.size(@size)</h3>
+<p>Set the height and width of a square.</p>
+<h3 id="sizewidth-height">.size(@width, @height)</h3>
+<p>Set the height and width of a rectangle.</p>
+<h3 id="skewx-y">.skew(@x, @y)</h3>
+<h3 id="sprites">Sprites</h3>
+<p>A collection of mixins for working with spritesheets, using different methods.</p>
+<h3 id="spriteimage-spritewidth-spriteheight-spritex-0-spritey-0">.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="beforeimage-spritewidth-spriteheight-spritex-0-spritey-0">.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="afterimage-spritewidth-spriteheight-spritex-0-spritey-0">.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="sticky-footer">Sticky Footer</h3>
+<p>Required: declare height</p>
+<p>By default the mixin does not support IE7. To extend
+support add <div class="push"></div> after your
+div:first-child in lieu of :after psuedo class support.</p>
+<h3 id="transformparams">.transform(@params)</h3>
+<h3 id="transitiontransition">.transition(@transition)</h3>
+<h3 id="transitionpropertyproperty">.transition-property(@property)</h3>
+<h3 id="transitiondurationduration">.transition-duration(@duration)</h3>
+<h3 id="transitiontimingtiming">.transition-timing(@timing)</h3>
+<h3 id="transitiondelaydelay">.transition-delay(@delay)</h3>
+<h3 id="translatex-y">.translate(@x, @y)</h3>
+<h3 id="translatex-y-z">.translate(@x, @y, @z)</h3>
+<h3 id="define-colors-and-backgrounds-with-transparency-via-hsla-with-hex-fall-back">Define colors and backgrounds with transparency via hsla with hex fall back</h3>
+<h3 id="unstyleform">.unstyle-form()</h3>
+<p>Explicitly remove style from form elements</p>
+<h3 id="unstylelist">.unstyle-list()</h3>
+<p>Remove margin, padding and bulletslist style types lists</p>
+<h3 id="userselectselect">.user-select(@select)</h3>
+<p>For selecting text on the page</p>
+<h3 id="valignheight">.valign(@height)</h3>
+<h3 id="backfacevisibility">.backface-visibility()</h3>
+<p>Prevent browsers from flickering when using CSS 3D transforms. Default value is <code>visible</code>, but can be changed to <code>hidden</code>.</p>
+<p>See git pull <a href="https://github.com/dannykeane/bootstrap.git">https://github.com/dannykeane/bootstrap.git</a> backface-visibility for examples</p>
+<h3 id="backgroundclip">.background-clip()</h3>
+<p>Note: FF 3.6 and under need &quot;padding&quot; instead of &quot;padding-box&quot;</p>
+<h3 id="backgroundsizesize">.background-size(@size)</h3>
+<h3 id="borderradiusradius">.border-radius(@radius)</h3>
+<h3 id="boxshadowshadow">.box-shadow(@shadow);</h3>
+<h3 id="boxsizingboxmodel">.box-sizing(@boxmodel)</h3>
+<h3 id="centerblock">.center-block()</h3>
+<p>Horizontally center a block element.</p>
+<h3 id="clearfix">.clearfix();</h3>
+<h3 id="columnscolumncount-columngap">.columns(@columnCount, @columnGap)</h3>
+<p>CSS3 Content Columns</p>
+<h3 id="copyleft">.copyleft()</h3>
+<p>Wikipedia: <a href="http://en.wikipedia.org/wiki/Copyleft">http://en.wikipedia.org/wiki/Copyleft</a></p>
+<p><span class="copyleft">&copy;</span></p>
+<h3 id="delay">.delay()</h3>
+<p>Note: this is deprecated</p>
+<h3 id="fontsizepx">.font-size(@px)</h3>
+<h3 id="establishfontsizepx">.establish-font-size(@px)</h3>
+<p>Generates a rule that the element should be in pixels and it&#39;s rem equivalent</p>
+<p><strong>Usage</strong></p>
+<p>Establish your base font size in your project root: <code>.establish-font-size(10px);</code></p>
+<p>Then declare your element&#39;s font-size:</p>
+<pre><code class="lang-css">div {
+    .font-size(15px);
+}</code></pre>
+<h3 id="gradients">Gradients</h3>
+<p>Based on Twitter Bootstrap
+<a href="https://github.com/twbs/bootstrap/">https://github.com/twbs/bootstrap/</a></p>
+<h4 id="horizontalstartcolor-endcolor-startpercent-endpercent">.horizontal(@start-color; @end-color; @start-percent; @end-percent;)</h4>
+<p>Horizontal gradient, from left to right.</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p>@start-color: #555;
+@end-color: #333;
+@start-percent: 0%;
+@end-percent: 100%</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="verticalstartcolor-endcolor-startpercent-endpercent">.vertical(@start-color; @end-color; @start-percent; @end-percent;);</h4>
+<p>Vertical gradient, from top to bottom</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="directionalstartcolor-555-endcolor-333-deg-45deg">.directional(@start-color: #555; @end-color: #333; @deg: 45deg);</h4>
+<h4 id="horizontalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="verticalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="radialinnercolor-555-outercolor-333">.radial(@inner-color: #555; @outer-color: #333)</h4>
+<h4 id="stripedcolor-555-angle-45deg">.striped(@color: #555; @angle: 45deg)</h4>
+<h3 id="hyphensmode-auto">.hyphens(@mode: auto)</h3>
+<p>Optional hyphenation</p>
+<h3 id="inlineblock">.inline-block()</h3>
+<p>Better { display: Inline-block }</p>
+<h3 id="irwidth-ratio">.ir(@width, @ratio)</h3>
+<p>Intrinsic ratios</p>
+<p><strong>Examples</strong></p>
+<p><code>.ir(16.6667%, 430/380)</code>: generates a box at 430 by 380 that is 1/6 of the screen width</p>
+<p><code>.ir(25%, 1.6)</code>: creates an 8 by 5 box that is 1/4 of the screen width</p>
+<p><code>.ir(33.3334%, 8, 5)</code>: creates an 8 by 5 box that is 1/3 of the screen width</p>
+<p><code>.ir(100%, 16/9)</code>: creates 16 by 9 box that is 100% of the screen width
+as seen on <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video">http://alistapart.com/article/creating-intrinsic-ratios-for-video</a></p>
+<h3 id="hmarginval">.h-margin(@val)</h3>
+<p>Shortcut for setting a horizontal margin</p>
+<h3 id="vmarginval">.v-margin(@val)</h3>
+<p>Shortcut for setting a vertical margin</p>
+<h3 id="opacityopacity">.opacity(@opacity)</h3>
+<h3 id="hpaddingval">.h-padding(@val)</h3>
+<p>Shortcut for setting padding on the left and right of an element.</p>
+<h3 id="vpaddingval">.v-padding(@val)</h3>
+<p>Shortcut for setting padding on the top and bottom of an element.</p>
+<h3 id="placeholder">.placeholder()</h3>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-css">input {
+    .placeholder-styles() {
+        color: red;
+    }
+    .placeholder();
+}</code></pre>
+<h3 id="replacetext">.replace-text()</h3>
+<p>Image Replacement
+Kullem Method: <a href="http://bit.ly/RyNnoz">http://bit.ly/RyNnoz</a>
+Element must be display block or inline-block</p>
+<h3 id="resetfilter">.reset-filter()</h3>
+<p>Reset filters for IE</p>
+<h3 id="resizedirection">.resize(@direction)</h3>
+<p>Resize anything</p>
+<h3 id="rotatedegrees">.rotate(@degrees)</h3>
+<h3 id="rotatedegrees-xy">.rotate(@degrees, @xy)</h3>
+<h3 id="scaleratio">.scale(@ratio)</h3>
+<h3 id="scalex-y">.scale(@x, @y)</h3>
+<h3 id="sizesize">.size(@size)</h3>
+<p>Set the height and width of a square.</p>
+<h3 id="sizewidth-height">.size(@width, @height)</h3>
+<p>Set the height and width of a rectangle.</p>
+<h3 id="skewx-y">.skew(@x, @y)</h3>
+<h3 id="sprites">Sprites</h3>
+<p>A collection of mixins for working with spritesheets, using different methods.</p>
+<h3 id="spriteimage-spritewidth-spriteheight-spritex-0-spritey-0">.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="beforeimage-spritewidth-spriteheight-spritex-0-spritey-0">.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="afterimage-spritewidth-spriteheight-spritex-0-spritey-0">.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="sticky-footer">Sticky Footer</h3>
+<p>Required: declare height</p>
+<p>By default the mixin does not support IE7. To extend
+support add <div class="push"></div> after your
+div:first-child in lieu of :after psuedo class support.</p>
+<h3 id="transformparams">.transform(@params)</h3>
+<h3 id="transitiontransition">.transition(@transition)</h3>
+<h3 id="transitionpropertyproperty">.transition-property(@property)</h3>
+<h3 id="transitiondurationduration">.transition-duration(@duration)</h3>
+<h3 id="transitiontimingtiming">.transition-timing(@timing)</h3>
+<h3 id="transitiondelaydelay">.transition-delay(@delay)</h3>
+<h3 id="translatex-y">.translate(@x, @y)</h3>
+<h3 id="translatex-y-z">.translate(@x, @y, @z)</h3>
+<h3 id="define-colors-and-backgrounds-with-transparency-via-hsla-with-hex-fall-back">Define colors and backgrounds with transparency via hsla with hex fall back</h3>
+<h3 id="unstyleform">.unstyle-form()</h3>
+<p>Explicitly remove style from form elements</p>
+<h3 id="unstylelist">.unstyle-list()</h3>
+<p>Remove margin, padding and bulletslist style types lists</p>
+<h3 id="userselectselect">.user-select(@select)</h3>
+<p>For selecting text on the page</p>
+<h3 id="valignheight">.valign(@height)</h3>
+<h3 id="backfacevisibility">.backface-visibility()</h3>
+<p>Prevent browsers from flickering when using CSS 3D transforms. Default value is <code>visible</code>, but can be changed to <code>hidden</code>.</p>
+<p>See git pull <a href="https://github.com/dannykeane/bootstrap.git">https://github.com/dannykeane/bootstrap.git</a> backface-visibility for examples</p>
+<h3 id="backgroundclip">.background-clip()</h3>
+<p>Note: FF 3.6 and under need &quot;padding&quot; instead of &quot;padding-box&quot;</p>
+<h3 id="backgroundsizesize">.background-size(@size)</h3>
+<h3 id="borderradiusradius">.border-radius(@radius)</h3>
+<h3 id="boxshadowshadow">.box-shadow(@shadow);</h3>
+<h3 id="boxsizingboxmodel">.box-sizing(@boxmodel)</h3>
+<h3 id="centerblock">.center-block()</h3>
+<p>Horizontally center a block element.</p>
+<h3 id="clearfix">.clearfix();</h3>
+<h3 id="columnscolumncount-columngap">.columns(@columnCount, @columnGap)</h3>
+<p>CSS3 Content Columns</p>
+<h3 id="copyleft">.copyleft()</h3>
+<p>Wikipedia: <a href="http://en.wikipedia.org/wiki/Copyleft">http://en.wikipedia.org/wiki/Copyleft</a></p>
+<p><span class="copyleft">&copy;</span></p>
+<h3 id="delay">.delay()</h3>
+<p>Note: this is deprecated</p>
+<h3 id="fontsizepx">.font-size(@px)</h3>
+<h3 id="establishfontsizepx">.establish-font-size(@px)</h3>
+<p>Generates a rule that the element should be in pixels and it&#39;s rem equivalent</p>
+<p><strong>Usage</strong></p>
+<p>Establish your base font size in your project root: <code>.establish-font-size(10px);</code></p>
+<p>Then declare your element&#39;s font-size:</p>
+<pre><code class="lang-css">div {
+    .font-size(15px);
+}</code></pre>
+<h3 id="gradients">Gradients</h3>
+<p>Based on Twitter Bootstrap
+<a href="https://github.com/twbs/bootstrap/">https://github.com/twbs/bootstrap/</a></p>
+<h4 id="horizontalstartcolor-endcolor-startpercent-endpercent">.horizontal(@start-color; @end-color; @start-percent; @end-percent;)</h4>
+<p>Horizontal gradient, from left to right.</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p>@start-color: #555;
+@end-color: #333;
+@start-percent: 0%;
+@end-percent: 100%</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="verticalstartcolor-endcolor-startpercent-endpercent">.vertical(@start-color; @end-color; @start-percent; @end-percent;);</h4>
+<p>Vertical gradient, from top to bottom</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="directionalstartcolor-555-endcolor-333-deg-45deg">.directional(@start-color: #555; @end-color: #333; @deg: 45deg);</h4>
+<h4 id="horizontalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="verticalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="radialinnercolor-555-outercolor-333">.radial(@inner-color: #555; @outer-color: #333)</h4>
+<h4 id="stripedcolor-555-angle-45deg">.striped(@color: #555; @angle: 45deg)</h4>
+<h3 id="hyphensmode-auto">.hyphens(@mode: auto)</h3>
+<p>Optional hyphenation</p>
+<h3 id="inlineblock">.inline-block()</h3>
+<p>Better { display: Inline-block }</p>
+<h3 id="irwidth-ratio">.ir(@width, @ratio)</h3>
+<p>Intrinsic ratios</p>
+<p><strong>Examples</strong></p>
+<p><code>.ir(16.6667%, 430/380)</code>: generates a box at 430 by 380 that is 1/6 of the screen width</p>
+<p><code>.ir(25%, 1.6)</code>: creates an 8 by 5 box that is 1/4 of the screen width</p>
+<p><code>.ir(33.3334%, 8, 5)</code>: creates an 8 by 5 box that is 1/3 of the screen width</p>
+<p><code>.ir(100%, 16/9)</code>: creates 16 by 9 box that is 100% of the screen width
+as seen on <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video">http://alistapart.com/article/creating-intrinsic-ratios-for-video</a></p>
+<h3 id="hmarginval">.h-margin(@val)</h3>
+<p>Shortcut for setting a horizontal margin</p>
+<h3 id="vmarginval">.v-margin(@val)</h3>
+<p>Shortcut for setting a vertical margin</p>
+<h3 id="opacityopacity">.opacity(@opacity)</h3>
+<h3 id="hpaddingval">.h-padding(@val)</h3>
+<p>Shortcut for setting padding on the left and right of an element.</p>
+<h3 id="vpaddingval">.v-padding(@val)</h3>
+<p>Shortcut for setting padding on the top and bottom of an element.</p>
+<h3 id="placeholder">.placeholder()</h3>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-css">input {
+    .placeholder-styles() {
+        color: red;
+    }
+    .placeholder();
+}</code></pre>
+<h3 id="replacetext">.replace-text()</h3>
+<p>Image Replacement
+Kullem Method: <a href="http://bit.ly/RyNnoz">http://bit.ly/RyNnoz</a>
+Element must be display block or inline-block</p>
+<h3 id="resetfilter">.reset-filter()</h3>
+<p>Reset filters for IE</p>
+<h3 id="resizedirection">.resize(@direction)</h3>
+<p>Resize anything</p>
+<h3 id="rotatedegrees">.rotate(@degrees)</h3>
+<h3 id="rotatedegrees-xy">.rotate(@degrees, @xy)</h3>
+<h3 id="scaleratio">.scale(@ratio)</h3>
+<h3 id="scalex-y">.scale(@x, @y)</h3>
+<h3 id="sizesize">.size(@size)</h3>
+<p>Set the height and width of a square.</p>
+<h3 id="sizewidth-height">.size(@width, @height)</h3>
+<p>Set the height and width of a rectangle.</p>
+<h3 id="skewx-y">.skew(@x, @y)</h3>
+<h3 id="sprites">Sprites</h3>
+<p>A collection of mixins for working with spritesheets, using different methods.</p>
+<h3 id="spriteimage-spritewidth-spriteheight-spritex-0-spritey-0">.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="beforeimage-spritewidth-spriteheight-spritex-0-spritey-0">.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="afterimage-spritewidth-spriteheight-spritex-0-spritey-0">.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="sticky-footer">Sticky Footer</h3>
+<p>Required: declare height</p>
+<p>By default the mixin does not support IE7. To extend
+support add <div class="push"></div> after your
+div:first-child in lieu of :after psuedo class support.</p>
+<h3 id="transformparams">.transform(@params)</h3>
+<h3 id="transitiontransition">.transition(@transition)</h3>
+<h3 id="transitionpropertyproperty">.transition-property(@property)</h3>
+<h3 id="transitiondurationduration">.transition-duration(@duration)</h3>
+<h3 id="transitiontimingtiming">.transition-timing(@timing)</h3>
+<h3 id="transitiondelaydelay">.transition-delay(@delay)</h3>
+<h3 id="translatex-y">.translate(@x, @y)</h3>
+<h3 id="translatex-y-z">.translate(@x, @y, @z)</h3>
+<h3 id="define-colors-and-backgrounds-with-transparency-via-hsla-with-hex-fall-back">Define colors and backgrounds with transparency via hsla with hex fall back</h3>
+<h3 id="unstyleform">.unstyle-form()</h3>
+<p>Explicitly remove style from form elements</p>
+<h3 id="unstylelist">.unstyle-list()</h3>
+<p>Remove margin, padding and bulletslist style types lists</p>
+<h3 id="userselectselect">.user-select(@select)</h3>
+<p>For selecting text on the page</p>
+<h3 id="valignheight">.valign(@height)</h3>
+<h3 id="backfacevisibility">.backface-visibility()</h3>
+<p>Prevent browsers from flickering when using CSS 3D transforms. Default value is <code>visible</code>, but can be changed to <code>hidden</code>.</p>
+<p>See git pull <a href="https://github.com/dannykeane/bootstrap.git">https://github.com/dannykeane/bootstrap.git</a> backface-visibility for examples</p>
+<h3 id="backgroundclip">.background-clip()</h3>
+<p>Note: FF 3.6 and under need &quot;padding&quot; instead of &quot;padding-box&quot;</p>
+<h3 id="backgroundsizesize">.background-size(@size)</h3>
+<h3 id="borderradiusradius">.border-radius(@radius)</h3>
+<h3 id="boxshadowshadow">.box-shadow(@shadow);</h3>
+<h3 id="boxsizingboxmodel">.box-sizing(@boxmodel)</h3>
+<h3 id="centerblock">.center-block()</h3>
+<p>Horizontally center a block element.</p>
+<h3 id="clearfix">.clearfix();</h3>
+<h3 id="columnscolumncount-columngap">.columns(@columnCount, @columnGap)</h3>
+<p>CSS3 Content Columns</p>
+<h3 id="copyleft">.copyleft()</h3>
+<p>Wikipedia: <a href="http://en.wikipedia.org/wiki/Copyleft">http://en.wikipedia.org/wiki/Copyleft</a></p>
+<p><span class="copyleft">&copy;</span></p>
+<h3 id="delay">.delay()</h3>
+<p>Note: this is deprecated</p>
+<h3 id="fontsizepx">.font-size(@px)</h3>
+<h3 id="establishfontsizepx">.establish-font-size(@px)</h3>
+<p>Generates a rule that the element should be in pixels and it&#39;s rem equivalent</p>
+<p><strong>Usage</strong></p>
+<p>Establish your base font size in your project root: <code>.establish-font-size(10px);</code></p>
+<p>Then declare your element&#39;s font-size:</p>
+<pre><code class="lang-css">div {
+    .font-size(15px);
+}</code></pre>
+<h3 id="gradients">Gradients</h3>
+<p>Based on Twitter Bootstrap
+<a href="https://github.com/twbs/bootstrap/">https://github.com/twbs/bootstrap/</a></p>
+<h4 id="horizontalstartcolor-endcolor-startpercent-endpercent">.horizontal(@start-color; @end-color; @start-percent; @end-percent;)</h4>
+<p>Horizontal gradient, from left to right.</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p>@start-color: #555;
+@end-color: #333;
+@start-percent: 0%;
+@end-percent: 100%</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="verticalstartcolor-endcolor-startpercent-endpercent">.vertical(@start-color; @end-color; @start-percent; @end-percent;);</h4>
+<p>Vertical gradient, from top to bottom</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="directionalstartcolor-555-endcolor-333-deg-45deg">.directional(@start-color: #555; @end-color: #333; @deg: 45deg);</h4>
+<h4 id="horizontalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="verticalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="radialinnercolor-555-outercolor-333">.radial(@inner-color: #555; @outer-color: #333)</h4>
+<h4 id="stripedcolor-555-angle-45deg">.striped(@color: #555; @angle: 45deg)</h4>
+<h3 id="hyphensmode-auto">.hyphens(@mode: auto)</h3>
+<p>Optional hyphenation</p>
+<h3 id="inlineblock">.inline-block()</h3>
+<p>Better { display: Inline-block }</p>
+<h3 id="irwidth-ratio">.ir(@width, @ratio)</h3>
+<p>Intrinsic ratios</p>
+<p><strong>Examples</strong></p>
+<p><code>.ir(16.6667%, 430/380)</code>: generates a box at 430 by 380 that is 1/6 of the screen width</p>
+<p><code>.ir(25%, 1.6)</code>: creates an 8 by 5 box that is 1/4 of the screen width</p>
+<p><code>.ir(33.3334%, 8, 5)</code>: creates an 8 by 5 box that is 1/3 of the screen width</p>
+<p><code>.ir(100%, 16/9)</code>: creates 16 by 9 box that is 100% of the screen width
+as seen on <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video">http://alistapart.com/article/creating-intrinsic-ratios-for-video</a></p>
+<h3 id="hmarginval">.h-margin(@val)</h3>
+<p>Shortcut for setting a horizontal margin</p>
+<h3 id="vmarginval">.v-margin(@val)</h3>
+<p>Shortcut for setting a vertical margin</p>
+<h3 id="opacityopacity">.opacity(@opacity)</h3>
+<h3 id="hpaddingval">.h-padding(@val)</h3>
+<p>Shortcut for setting padding on the left and right of an element.</p>
+<h3 id="vpaddingval">.v-padding(@val)</h3>
+<p>Shortcut for setting padding on the top and bottom of an element.</p>
+<h3 id="placeholder">.placeholder()</h3>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-css">input {
+    .placeholder-styles() {
+        color: red;
+    }
+    .placeholder();
+}</code></pre>
+<h3 id="replacetext">.replace-text()</h3>
+<p>Image Replacement
+Kullem Method: <a href="http://bit.ly/RyNnoz">http://bit.ly/RyNnoz</a>
+Element must be display block or inline-block</p>
+<h3 id="resetfilter">.reset-filter()</h3>
+<p>Reset filters for IE</p>
+<h3 id="resizedirection">.resize(@direction)</h3>
+<p>Resize anything</p>
+<h3 id="rotatedegrees">.rotate(@degrees)</h3>
+<h3 id="rotatedegrees-xy">.rotate(@degrees, @xy)</h3>
+<h3 id="scaleratio">.scale(@ratio)</h3>
+<h3 id="scalex-y">.scale(@x, @y)</h3>
+<h3 id="sizesize">.size(@size)</h3>
+<p>Set the height and width of a square.</p>
+<h3 id="sizewidth-height">.size(@width, @height)</h3>
+<p>Set the height and width of a rectangle.</p>
+<h3 id="skewx-y">.skew(@x, @y)</h3>
+<h3 id="sprites">Sprites</h3>
+<p>A collection of mixins for working with spritesheets, using different methods.</p>
+<h3 id="spriteimage-spritewidth-spriteheight-spritex-0-spritey-0">.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="beforeimage-spritewidth-spriteheight-spritex-0-spritey-0">.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="afterimage-spritewidth-spriteheight-spritex-0-spritey-0">.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="sticky-footer">Sticky Footer</h3>
+<p>Required: declare height</p>
+<p>By default the mixin does not support IE7. To extend
+support add <div class="push"></div> after your
+div:first-child in lieu of :after psuedo class support.</p>
+<h3 id="transformparams">.transform(@params)</h3>
+<h3 id="transitiontransition">.transition(@transition)</h3>
+<h3 id="transitionpropertyproperty">.transition-property(@property)</h3>
+<h3 id="transitiondurationduration">.transition-duration(@duration)</h3>
+<h3 id="transitiontimingtiming">.transition-timing(@timing)</h3>
+<h3 id="transitiondelaydelay">.transition-delay(@delay)</h3>
+<h3 id="translatex-y">.translate(@x, @y)</h3>
+<h3 id="translatex-y-z">.translate(@x, @y, @z)</h3>
+<h3 id="define-colors-and-backgrounds-with-transparency-via-hsla-with-hex-fall-back">Define colors and backgrounds with transparency via hsla with hex fall back</h3>
+<h3 id="unstyleform">.unstyle-form()</h3>
+<p>Explicitly remove style from form elements</p>
+<h3 id="unstylelist">.unstyle-list()</h3>
+<p>Remove margin, padding and bulletslist style types lists</p>
+<h3 id="userselectselect">.user-select(@select)</h3>
+<p>For selecting text on the page</p>
+<h3 id="valignheight">.valign(@height)</h3>
+<h3 id="backfacevisibility">.backface-visibility()</h3>
+<p>Prevent browsers from flickering when using CSS 3D transforms. Default value is <code>visible</code>, but can be changed to <code>hidden</code>.</p>
+<p>See git pull <a href="https://github.com/dannykeane/bootstrap.git">https://github.com/dannykeane/bootstrap.git</a> backface-visibility for examples</p>
+<h3 id="backgroundclip">.background-clip()</h3>
+<p>Note: FF 3.6 and under need &quot;padding&quot; instead of &quot;padding-box&quot;</p>
+<h3 id="backgroundsizesize">.background-size(@size)</h3>
+<h3 id="borderradiusradius">.border-radius(@radius)</h3>
+<h3 id="boxshadowshadow">.box-shadow(@shadow);</h3>
+<h3 id="boxsizingboxmodel">.box-sizing(@boxmodel)</h3>
+<h3 id="centerblock">.center-block()</h3>
+<p>Horizontally center a block element.</p>
+<h3 id="clearfix">.clearfix();</h3>
+<h3 id="columnscolumncount-columngap">.columns(@columnCount, @columnGap)</h3>
+<p>CSS3 Content Columns</p>
+<h3 id="copyleft">.copyleft()</h3>
+<p>Wikipedia: <a href="http://en.wikipedia.org/wiki/Copyleft">http://en.wikipedia.org/wiki/Copyleft</a></p>
+<p><span class="copyleft">&copy;</span></p>
+<h3 id="delay">.delay()</h3>
+<p>Note: this is deprecated</p>
+<h3 id="fontsizepx">.font-size(@px)</h3>
+<h3 id="establishfontsizepx">.establish-font-size(@px)</h3>
+<p>Generates a rule that the element should be in pixels and it&#39;s rem equivalent</p>
+<p><strong>Usage</strong></p>
+<p>Establish your base font size in your project root: <code>.establish-font-size(10px);</code></p>
+<p>Then declare your element&#39;s font-size:</p>
+<pre><code class="lang-css">div {
+    .font-size(15px);
+}</code></pre>
+<h3 id="gradients">Gradients</h3>
+<p>Based on Twitter Bootstrap
+<a href="https://github.com/twbs/bootstrap/">https://github.com/twbs/bootstrap/</a></p>
+<h4 id="horizontalstartcolor-endcolor-startpercent-endpercent">.horizontal(@start-color; @end-color; @start-percent; @end-percent;)</h4>
+<p>Horizontal gradient, from left to right.</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p>@start-color: #555;
+@end-color: #333;
+@start-percent: 0%;
+@end-percent: 100%</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="verticalstartcolor-endcolor-startpercent-endpercent">.vertical(@start-color; @end-color; @start-percent; @end-percent;);</h4>
+<p>Vertical gradient, from top to bottom</p>
+<p>Creates two color stops, start and end, by specifying a color and position for each color stop.</p>
+<p>Color stops are not available in IE9 and below.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-css">#gradient .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%)</code></pre>
+<h4 id="directionalstartcolor-555-endcolor-333-deg-45deg">.directional(@start-color: #555; @end-color: #333; @deg: 45deg);</h4>
+<h4 id="horizontalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="verticalthreecolorsstartcolor-00b3ee-midcolor-7a43b6-colorstop-50-endcolor-c3325f">.vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f)</h4>
+<h4 id="radialinnercolor-555-outercolor-333">.radial(@inner-color: #555; @outer-color: #333)</h4>
+<h4 id="stripedcolor-555-angle-45deg">.striped(@color: #555; @angle: 45deg)</h4>
+<h3 id="hyphensmode-auto">.hyphens(@mode: auto)</h3>
+<p>Optional hyphenation</p>
+<h3 id="inlineblock">.inline-block()</h3>
+<p>Better { display: Inline-block }</p>
+<h3 id="irwidth-ratio">.ir(@width, @ratio)</h3>
+<p>Intrinsic ratios</p>
+<p><strong>Examples</strong></p>
+<p><code>.ir(16.6667%, 430/380)</code>: generates a box at 430 by 380 that is 1/6 of the screen width</p>
+<p><code>.ir(25%, 1.6)</code>: creates an 8 by 5 box that is 1/4 of the screen width</p>
+<p><code>.ir(33.3334%, 8, 5)</code>: creates an 8 by 5 box that is 1/3 of the screen width</p>
+<p><code>.ir(100%, 16/9)</code>: creates 16 by 9 box that is 100% of the screen width
+as seen on <a href="http://alistapart.com/article/creating-intrinsic-ratios-for-video">http://alistapart.com/article/creating-intrinsic-ratios-for-video</a></p>
+<h3 id="hmarginval">.h-margin(@val)</h3>
+<p>Shortcut for setting a horizontal margin</p>
+<h3 id="vmarginval">.v-margin(@val)</h3>
+<p>Shortcut for setting a vertical margin</p>
+<h3 id="opacityopacity">.opacity(@opacity)</h3>
+<h3 id="hpaddingval">.h-padding(@val)</h3>
+<p>Shortcut for setting padding on the left and right of an element.</p>
+<h3 id="vpaddingval">.v-padding(@val)</h3>
+<p>Shortcut for setting padding on the top and bottom of an element.</p>
+<h3 id="placeholder">.placeholder()</h3>
+<p><strong>Usage</strong></p>
+<pre><code class="lang-css">input {
+    .placeholder-styles() {
+        color: red;
+    }
+    .placeholder();
+}</code></pre>
+<h3 id="replacetext">.replace-text()</h3>
+<p>Image Replacement
+Kullem Method: <a href="http://bit.ly/RyNnoz">http://bit.ly/RyNnoz</a>
+Element must be display block or inline-block</p>
+<h3 id="resetfilter">.reset-filter()</h3>
+<p>Reset filters for IE</p>
+<h3 id="resizedirection">.resize(@direction)</h3>
+<p>Resize anything</p>
+<h3 id="rotatedegrees">.rotate(@degrees)</h3>
+<h3 id="rotatedegrees-xy">.rotate(@degrees, @xy)</h3>
+<h3 id="scaleratio">.scale(@ratio)</h3>
+<h3 id="scalex-y">.scale(@x, @y)</h3>
+<h3 id="sizesize">.size(@size)</h3>
+<p>Set the height and width of a square.</p>
+<h3 id="sizewidth-height">.size(@width, @height)</h3>
+<p>Set the height and width of a rectangle.</p>
+<h3 id="skewx-y">.skew(@x, @y)</h3>
+<h3 id="sprites">Sprites</h3>
+<p>A collection of mixins for working with spritesheets, using different methods.</p>
+<h3 id="spriteimage-spritewidth-spriteheight-spritex-0-spritey-0">.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="beforeimage-spritewidth-spriteheight-spritex-0-spritey-0">.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="afterimage-spritewidth-spriteheight-spritex-0-spritey-0">.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0)</h3>
+<h3 id="sticky-footer">Sticky Footer</h3>
+<p>Required: declare height</p>
+<p>By default the mixin does not support IE7. To extend
+support add <div class="push"></div> after your
+div:first-child in lieu of :after psuedo class support.</p>
+<h3 id="transformparams">.transform(@params)</h3>
+<h3 id="transitiontransition">.transition(@transition)</h3>
+<h3 id="transitionpropertyproperty">.transition-property(@property)</h3>
+<h3 id="transitiondurationduration">.transition-duration(@duration)</h3>
+<h3 id="transitiontimingtiming">.transition-timing(@timing)</h3>
+<h3 id="transitiondelaydelay">.transition-delay(@delay)</h3>
+<h3 id="translatex-y">.translate(@x, @y)</h3>
+<h3 id="translatex-y-z">.translate(@x, @y, @z)</h3>
+<h3 id="define-colors-and-backgrounds-with-transparency-via-hsla-with-hex-fall-back">Define colors and backgrounds with transparency via hsla with hex fall back</h3>
+<h3 id="unstyleform">.unstyle-form()</h3>
+<p>Explicitly remove style from form elements</p>
+<h3 id="unstylelist">.unstyle-list()</h3>
+<p>Remove margin, padding and bulletslist style types lists</p>
+<h3 id="userselectselect">.user-select(@select)</h3>
+<p>For selecting text on the page</p>
+<h3 id="valignheight">.valign(@height)</h3>
+</div><div class="code"><pre><code>.backface-visibility(@visibility) {
+	-webkit-backface-visibility: @visibility;
+	-moz-backface-visibility: @visibility;
+	-ms-backface-visibility: @visibility;
+	backface-visibility: @visibility;
+}
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	-moz-background-clip: @clip;
+	background-clip: @clip;
+}
+.background-size(@size) {
+	-webkit-background-size: @size;
+	-moz-background-size: @size;
+	-o-background-size: @size;
+	background-size: @size;
+}
+@import 'reset-filter';
+
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.border-radius(@radius) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+
+@import 'reset-filter';
+
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.box-shadow(@shadow) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	-moz-box-sizing: @boxmodel;
+	-ms-box-sizing: @boxmodel;
+	box-sizing: @boxmodel;
+}
+
+.box-sizing(@boxmodel) when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		behavior: url("@{boxsizing-url}");
+	}
+}
+@import 'margin';
+.center-block() {
+	display: block;
+	.h-margin(auto);
+}
+.clearfix() {
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.clearfix() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		zoom: 1;
+	}
+}
+.columns(@columnCount, @columnGap) {
+	-webkit-column-count: @columnCount;
+	-moz-column-count: @columnCount;
+	column-count: @columnCount;
+	-webkit-column-gap: @columnGap;
+	-moz-column-gap: @columnGap;
+	column-gap: @columnGap;
+}
+@import 'inline-block';
+@import 'rotate';
+
+.copyleft() {
+	.inline-block();
+	.rotate(180deg, Y);
+}
+@import 'transition';
+.delay(@delay) { .transition-delay(@delay) }
+
+.font-size(@px) when (ispixel(@px)) {
+	font-size: @px; // Fallback for browsers that don't like rem
+	font-size: unit(@px / @base-font-size, rem);
+}
+.establish-font-size(@px) {
+	@base-font-size: @px;
+
+	// The assumed default browser font size. We do this because if we set a pixel
+	// font size on the HTML element, some (all?) browsers will use it instead of
+	// user styles. DON'T CHANGE THIS VALUE.
+	@browser-base-font-size: 16px;
+
+	html {
+		font-size: unit(100 * @base-font-size / @browser-base-font-size, ~'%');
+	}
+}
+
+#gradient {
+
+  .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-gradient(linear, @start-percent top, @end-percent top, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent)); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image:  linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+
+  {
+    background-image: -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @start-color, @start-percent, @end-color, @end-percent); // Safari 5.1+, Chrome 10+
+    background-image:  -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+  .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(@deg, @start-color, @end-color); // FF 3.6+
+    background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10
+  }
+  .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(top, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .radial(@inner-color: #555; @outer-color: #333) {
+    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+    background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: -moz-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: radial-gradient(circle, @inner-color, @outer-color);
+    background-repeat: no-repeat;
+  }
+  .striped(@color: #555; @angle: 45deg) {
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  }
+}
+
+.hyphens(@mode: auto) {
+	word-wrap: break-word;
+	-webkit-hyphens: @mode;
+	-moz-hyphens: @mode;
+	-ms-hyphens: @mode;
+	-o-hyphens: @mode;
+	hyphens: @mode;
+}
+
+.inline-block() {
+	display: inline-block;
+}
+
+.inline-block() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+.ir(@width, @ratio) {
+	// calculate ratios by dividing width/height
+	// so a 16x9 box would be 16/9 = 1.777777778
+	width: unit(@width, ~'%');
+	height: 0;
+	padding-bottom: unit(@width / @ratio, ~'%');
+}
+
+.ir(@width, @ratio-width, @ratio-height) {
+ .ir(@width, unit(@ratio-width) / unit(@ratio-height));
+}
+
+.h-margin(@val) {
+	margin-left: @val;
+	margin-right: @val;
+}
+.v-margin(@val) {
+	margin-top: @val;
+	margin-bottom: @val;
+}
+.opacity(@opacity) {
+	opacity: (@opacity / 100);
+}
+
+.opacity(@opacity) when (@support-ie8 = true) {
+	.@{ie8-class} & {
+		filter: ~"alpha(opacity=@{opacity})";
+	}
+}
+.h-padding(@val) {
+	padding-left: @val;
+	padding-right: @val;
+}
+.v-padding(@val) {
+	padding-top: @val;
+	padding-bottom: @val;
+}
+.placeholder() {
+  &::-webkit-input-placeholder { .placeholder-styles; }
+  &:-ms-input-placeholder { .placeholder-styles; }
+  &::input-placeholder { .placeholder-styles; }
+  &:input-placeholder { .placeholder-styles; }
+  &::-moz-placeholder { .placeholder-styles; }
+  &:-moz-placeholder { .placeholder-styles; }
+  &::placeholder { .placeholder-styles; }
+  &:placeholder { .placeholder-styles; }
+}
+
+.replace-text() {
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.reset-filter() {
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+.resize(@direction) {
+	resize: @direction; // Options: horizontal, vertical, both
+	overflow: auto; // Safari fix
+}
+.rotate(@degrees) {
+	-webkit-transform: rotate(@degrees);
+	-moz-transform: rotate(@degrees);
+	-ms-transform: rotate(@degrees);
+	-o-transform: rotate(@degrees);
+	transform: rotate(@degrees);
+}
+.rotate(@degrees, @xy) {
+	@axis: `'@{xy}'.toUpperCase()`;
+	-webkit-transform: ~'rotate@{axis}(@{degrees})';
+	-moz-transform: ~'rotate@{axis}(@{degrees})';
+	-ms-transform: ~'rotate@{axis}(@{degrees})';
+	-o-transform: ~'rotate@{axis}(@{degrees})';
+	transform: ~'rotate@{axis}(@{degrees})';
+}
+.scale(@ratio) {
+	-webkit-transform: scale(@ratio);
+	-moz-transform: scale(@ratio);
+	-ms-transform: scale(@ratio);
+	-o-transform: scale(@ratio);
+	transform: scale(@ratio);
+}
+.scale(@x, @y) {
+	-webkit-transform: scale(@x, @y);
+	-moz-transform: scale(@x, @y);
+	-ms-transform: scale(@x, @y);
+	-o-transform: scale(@x, @y);
+	transform: scale(@x, @y);
+}
+.size(@size) {
+	width: @size;
+	height: @size;
+}
+ {
+	width: @width;
+	height: @height;
+}
+
+.skew(@x, @y) {
+	-webkit-transform: skew(@x, @y);
+	-moz-transform: skew(@x, @y);
+	-ms-transform: skew(@x, @y);
+	-o-transform: skew(@x, @y);
+	transform: skew(@x, @y);
+}
+@import './inline-block';
+@import './replace-text';
+#sprite {
+	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		.inline-block();
+		.replace-text();
+
+		background-image: @image;
+		background-repeat: no-repeat;
+		background-position: -@sprite-x -@sprite-y;
+		width: @sprite-width;
+		height: @sprite-height;
+	}
+
+	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:before {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:after {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+}
+
+.sticky-footer(@height, @wrapper: ~"> div:first-child") {
+
+	.push () {
+		height: @height;
+		width: 100%;
+		display: block;
+		background: transparent;
+		content: '';
+	}
+
+	html, body {
+		height: 100%;
+	}
+
+	body {
+
+	    @{wrapper} {
+			min-height: 100%;
+			margin-bottom: -@height;
+
+			&:after {
+				.push();
+			}
+		}
+
+		> footer {
+			height: @height;
+		}
+	}
+
+  .check-support () when (@support-ie7 = true) {
+    .@{ie7-class} .push {
+    	.push();
+    }
+  }
+  .check-support();
+}
+.transform(@params) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	-ms-transform: @params;
+	-o-transform: @params;
+	transform: @params;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition; // Safari 6, Mobile Safari 6, Android & Blackberry
+	-moz-transition: @transition; // Firefox 4.0
+	-o-transition: @transition; // old opera
+	transition: @transition; // IE10
+}
+.transition-property(@property) {
+	-webkit-transition-property: @property;
+	-moz-transition-property: @property;
+	-o-transition-property: @property;
+	transition-property: @property;
+}
+.transition-property(@property, @prefix) when (@prefix = true) {
+    -webkit-transition-property: ~"-webkit-@{property}";
+	-moz-transition-property: ~"-moz-@{property}";
+	-o-transition-property: ~"-o-@{property}";
+	transition-property: @property;
+}
+.transition-duration(@duration) {
+	-webkit-transition-duration: @duration;
+	-moz-transition-duration: @duration;
+	-o-transition-duration: @duration;
+	transition-duration: @duration;
+}
+.transition-timing(@timing) {
+	-webkit-transition-timing-function: @timing;
+	-moz-transition-timing-function: @timing;
+	-o-transition-timing-function: @timing;
+	transition-timing-function: @timing;
+}
+.transition-delay(@delay) {
+	-webkit-transition-delay: @delay;
+	-moz-transition-delay: @delay;
+	-o-transition-delay: @delay;
+	transition-delay: @delay;
+}
+
+
+.translate(@x, @y) {
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.translate(@x, @y, @z) {
+	-webkit-transform: translate3d(@x, @y, @z);
+	-moz-transform: translate3d(@x, @y, @z);
+	-ms-transform: translate3d(@x, @y, @z);
+	-o-transform: translate3d(@x, @y, @z);
+	transform: translate3d(@x, @y, @z);
+}
+
+#transparent {
+
+	.color(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			color: @color;
+		}
+	}
+
+	.color(@color, @alpha: 1) {
+		color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+
+	.background(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			background-color: @color;
+		}
+	}
+
+	.background(@color, @alpha: 1) {
+		background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+}
+@import 'border-radius';
+@import 'background-clip';
+.unstyle-form() {
+	textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+		.background-clip(padding);
+		.border-radius(0);
+
+		-webkit-appearance: none;
+		background-color: #fff;
+		color: #000;
+		outline: 0;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		border: none;
+	}
+
+	fieldset, button, input[type="button"], input[type="reset"], input[type="submit"] {
+		-webkit-appearance: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	button, input[type="button"], input[type="reset"], input[type="submit"] {
+		background: white;
+		color: #000;
+	}
+
+	legend {
+		padding: 0;
+	}
+}
+.unstyle-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		margin: 0;
+		padding: 0;
+	}
+}
+.user-select(@select) {
+	-webkit-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	-o-user-select: @select;
+	user-select: @select;
+}
+.valign(@height) {
+	display: table;
+	height: @height;
+	overflow: hidden;
+	position: relative;
+
+	> .inner {
+		display: table-cell;
+		vertical-align: middle;
+		margin: 0 auto;
+
+		.element {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.check-support() when (@support-ie7 = true) {
+		.@{ie7-class} & {
+			overflow: visible;
+
+			> .inner {
+				position: absolute;
+				top: 50%;
+
+				.element {
+					top: -50%;
+				}
+			}
+		}
+	}
+	.check-support();
+}
+.backface-visibility(@visibility) {
+	-webkit-backface-visibility: @visibility;
+	-moz-backface-visibility: @visibility;
+	-ms-backface-visibility: @visibility;
+	backface-visibility: @visibility;
+}
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	-moz-background-clip: @clip;
+	background-clip: @clip;
+}
+.background-size(@size) {
+	-webkit-background-size: @size;
+	-moz-background-size: @size;
+	-o-background-size: @size;
+	background-size: @size;
+}
+@import 'reset-filter';
+
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.border-radius(@radius) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+
+@import 'reset-filter';
+
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.box-shadow(@shadow) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	-moz-box-sizing: @boxmodel;
+	-ms-box-sizing: @boxmodel;
+	box-sizing: @boxmodel;
+}
+
+.box-sizing(@boxmodel) when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		behavior: url("@{boxsizing-url}");
+	}
+}
+@import 'margin';
+.center-block() {
+	display: block;
+	.h-margin(auto);
+}
+.clearfix() {
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.clearfix() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		zoom: 1;
+	}
+}
+.columns(@columnCount, @columnGap) {
+	-webkit-column-count: @columnCount;
+	-moz-column-count: @columnCount;
+	column-count: @columnCount;
+	-webkit-column-gap: @columnGap;
+	-moz-column-gap: @columnGap;
+	column-gap: @columnGap;
+}
+@import 'inline-block';
+@import 'rotate';
+
+.copyleft() {
+	.inline-block();
+	.rotate(180deg, Y);
+}
+@import 'transition';
+.delay(@delay) { .transition-delay(@delay) }
+
+.font-size(@px) when (ispixel(@px)) {
+	font-size: @px; // Fallback for browsers that don't like rem
+	font-size: unit(@px / @base-font-size, rem);
+}
+.establish-font-size(@px) {
+	@base-font-size: @px;
+
+	// The assumed default browser font size. We do this because if we set a pixel
+	// font size on the HTML element, some (all?) browsers will use it instead of
+	// user styles. DON'T CHANGE THIS VALUE.
+	@browser-base-font-size: 16px;
+
+	html {
+		font-size: unit(100 * @base-font-size / @browser-base-font-size, ~'%');
+	}
+}
+
+#gradient {
+
+  .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-gradient(linear, @start-percent top, @end-percent top, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent)); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image:  linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+
+  {
+    background-image: -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @start-color, @start-percent, @end-color, @end-percent); // Safari 5.1+, Chrome 10+
+    background-image:  -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+  .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(@deg, @start-color, @end-color); // FF 3.6+
+    background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10
+  }
+  .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(top, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .radial(@inner-color: #555; @outer-color: #333) {
+    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+    background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: -moz-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: radial-gradient(circle, @inner-color, @outer-color);
+    background-repeat: no-repeat;
+  }
+  .striped(@color: #555; @angle: 45deg) {
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  }
+}
+
+.hyphens(@mode: auto) {
+	word-wrap: break-word;
+	-webkit-hyphens: @mode;
+	-moz-hyphens: @mode;
+	-ms-hyphens: @mode;
+	-o-hyphens: @mode;
+	hyphens: @mode;
+}
+
+.inline-block() {
+	display: inline-block;
+}
+
+.inline-block() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+.ir(@width, @ratio) {
+	// calculate ratios by dividing width/height
+	// so a 16x9 box would be 16/9 = 1.777777778
+	width: unit(@width, ~'%');
+	height: 0;
+	padding-bottom: unit(@width / @ratio, ~'%');
+}
+
+.ir(@width, @ratio-width, @ratio-height) {
+ .ir(@width, unit(@ratio-width) / unit(@ratio-height));
+}
+
+.h-margin(@val) {
+	margin-left: @val;
+	margin-right: @val;
+}
+.v-margin(@val) {
+	margin-top: @val;
+	margin-bottom: @val;
+}
+.opacity(@opacity) {
+	opacity: (@opacity / 100);
+}
+
+.opacity(@opacity) when (@support-ie8 = true) {
+	.@{ie8-class} & {
+		filter: ~"alpha(opacity=@{opacity})";
+	}
+}
+.h-padding(@val) {
+	padding-left: @val;
+	padding-right: @val;
+}
+.v-padding(@val) {
+	padding-top: @val;
+	padding-bottom: @val;
+}
+.placeholder() {
+  &::-webkit-input-placeholder { .placeholder-styles; }
+  &:-ms-input-placeholder { .placeholder-styles; }
+  &::input-placeholder { .placeholder-styles; }
+  &:input-placeholder { .placeholder-styles; }
+  &::-moz-placeholder { .placeholder-styles; }
+  &:-moz-placeholder { .placeholder-styles; }
+  &::placeholder { .placeholder-styles; }
+  &:placeholder { .placeholder-styles; }
+}
+
+.replace-text() {
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.reset-filter() {
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+.resize(@direction) {
+	resize: @direction; // Options: horizontal, vertical, both
+	overflow: auto; // Safari fix
+}
+.rotate(@degrees) {
+	-webkit-transform: rotate(@degrees);
+	-moz-transform: rotate(@degrees);
+	-ms-transform: rotate(@degrees);
+	-o-transform: rotate(@degrees);
+	transform: rotate(@degrees);
+}
+.rotate(@degrees, @xy) {
+	@axis: `'@{xy}'.toUpperCase()`;
+	-webkit-transform: ~'rotate@{axis}(@{degrees})';
+	-moz-transform: ~'rotate@{axis}(@{degrees})';
+	-ms-transform: ~'rotate@{axis}(@{degrees})';
+	-o-transform: ~'rotate@{axis}(@{degrees})';
+	transform: ~'rotate@{axis}(@{degrees})';
+}
+.scale(@ratio) {
+	-webkit-transform: scale(@ratio);
+	-moz-transform: scale(@ratio);
+	-ms-transform: scale(@ratio);
+	-o-transform: scale(@ratio);
+	transform: scale(@ratio);
+}
+.scale(@x, @y) {
+	-webkit-transform: scale(@x, @y);
+	-moz-transform: scale(@x, @y);
+	-ms-transform: scale(@x, @y);
+	-o-transform: scale(@x, @y);
+	transform: scale(@x, @y);
+}
+.size(@size) {
+	width: @size;
+	height: @size;
+}
+ {
+	width: @width;
+	height: @height;
+}
+
+.skew(@x, @y) {
+	-webkit-transform: skew(@x, @y);
+	-moz-transform: skew(@x, @y);
+	-ms-transform: skew(@x, @y);
+	-o-transform: skew(@x, @y);
+	transform: skew(@x, @y);
+}
+@import './inline-block';
+@import './replace-text';
+#sprite {
+	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		.inline-block();
+		.replace-text();
+
+		background-image: @image;
+		background-repeat: no-repeat;
+		background-position: -@sprite-x -@sprite-y;
+		width: @sprite-width;
+		height: @sprite-height;
+	}
+
+	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:before {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:after {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+}
+
+.sticky-footer(@height, @wrapper: ~"> div:first-child") {
+
+	.push () {
+		height: @height;
+		width: 100%;
+		display: block;
+		background: transparent;
+		content: '';
+	}
+
+	html, body {
+		height: 100%;
+	}
+
+	body {
+
+	    @{wrapper} {
+			min-height: 100%;
+			margin-bottom: -@height;
+
+			&:after {
+				.push();
+			}
+		}
+
+		> footer {
+			height: @height;
+		}
+	}
+
+  .check-support () when (@support-ie7 = true) {
+    .@{ie7-class} .push {
+    	.push();
+    }
+  }
+  .check-support();
+}
+.transform(@params) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	-ms-transform: @params;
+	-o-transform: @params;
+	transform: @params;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition; // Safari 6, Mobile Safari 6, Android & Blackberry
+	-moz-transition: @transition; // Firefox 4.0
+	-o-transition: @transition; // old opera
+	transition: @transition; // IE10
+}
+.transition-property(@property) {
+	-webkit-transition-property: @property;
+	-moz-transition-property: @property;
+	-o-transition-property: @property;
+	transition-property: @property;
+}
+.transition-property(@property, @prefix) when (@prefix = true) {
+    -webkit-transition-property: ~"-webkit-@{property}";
+	-moz-transition-property: ~"-moz-@{property}";
+	-o-transition-property: ~"-o-@{property}";
+	transition-property: @property;
+}
+.transition-duration(@duration) {
+	-webkit-transition-duration: @duration;
+	-moz-transition-duration: @duration;
+	-o-transition-duration: @duration;
+	transition-duration: @duration;
+}
+.transition-timing(@timing) {
+	-webkit-transition-timing-function: @timing;
+	-moz-transition-timing-function: @timing;
+	-o-transition-timing-function: @timing;
+	transition-timing-function: @timing;
+}
+.transition-delay(@delay) {
+	-webkit-transition-delay: @delay;
+	-moz-transition-delay: @delay;
+	-o-transition-delay: @delay;
+	transition-delay: @delay;
+}
+
+
+.translate(@x, @y) {
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.translate(@x, @y, @z) {
+	-webkit-transform: translate3d(@x, @y, @z);
+	-moz-transform: translate3d(@x, @y, @z);
+	-ms-transform: translate3d(@x, @y, @z);
+	-o-transform: translate3d(@x, @y, @z);
+	transform: translate3d(@x, @y, @z);
+}
+
+#transparent {
+
+	.color(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			color: @color;
+		}
+	}
+
+	.color(@color, @alpha: 1) {
+		color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+
+	.background(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			background-color: @color;
+		}
+	}
+
+	.background(@color, @alpha: 1) {
+		background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+}
+@import 'border-radius';
+@import 'background-clip';
+.unstyle-form() {
+	textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+		.background-clip(padding);
+		.border-radius(0);
+
+		-webkit-appearance: none;
+		background-color: #fff;
+		color: #000;
+		outline: 0;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		border: none;
+	}
+
+	fieldset, button, input[type="button"], input[type="reset"], input[type="submit"] {
+		-webkit-appearance: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	button, input[type="button"], input[type="reset"], input[type="submit"] {
+		background: white;
+		color: #000;
+	}
+
+	legend {
+		padding: 0;
+	}
+}
+.unstyle-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		margin: 0;
+		padding: 0;
+	}
+}
+.user-select(@select) {
+	-webkit-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	-o-user-select: @select;
+	user-select: @select;
+}
+.valign(@height) {
+	display: table;
+	height: @height;
+	overflow: hidden;
+	position: relative;
+
+	> .inner {
+		display: table-cell;
+		vertical-align: middle;
+		margin: 0 auto;
+
+		.element {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.check-support() when (@support-ie7 = true) {
+		.@{ie7-class} & {
+			overflow: visible;
+
+			> .inner {
+				position: absolute;
+				top: 50%;
+
+				.element {
+					top: -50%;
+				}
+			}
+		}
+	}
+	.check-support();
+}
+.backface-visibility(@visibility) {
+	-webkit-backface-visibility: @visibility;
+	-moz-backface-visibility: @visibility;
+	-ms-backface-visibility: @visibility;
+	backface-visibility: @visibility;
+}
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	-moz-background-clip: @clip;
+	background-clip: @clip;
+}
+.background-size(@size) {
+	-webkit-background-size: @size;
+	-moz-background-size: @size;
+	-o-background-size: @size;
+	background-size: @size;
+}
+@import 'reset-filter';
+
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.border-radius(@radius) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+
+@import 'reset-filter';
+
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.box-shadow(@shadow) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	-moz-box-sizing: @boxmodel;
+	-ms-box-sizing: @boxmodel;
+	box-sizing: @boxmodel;
+}
+
+.box-sizing(@boxmodel) when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		behavior: url("@{boxsizing-url}");
+	}
+}
+@import 'margin';
+.center-block() {
+	display: block;
+	.h-margin(auto);
+}
+.clearfix() {
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.clearfix() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		zoom: 1;
+	}
+}
+.columns(@columnCount, @columnGap) {
+	-webkit-column-count: @columnCount;
+	-moz-column-count: @columnCount;
+	column-count: @columnCount;
+	-webkit-column-gap: @columnGap;
+	-moz-column-gap: @columnGap;
+	column-gap: @columnGap;
+}
+@import 'inline-block';
+@import 'rotate';
+
+.copyleft() {
+	.inline-block();
+	.rotate(180deg, Y);
+}
+@import 'transition';
+.delay(@delay) { .transition-delay(@delay) }
+
+.font-size(@px) when (ispixel(@px)) {
+	font-size: @px; // Fallback for browsers that don't like rem
+	font-size: unit(@px / @base-font-size, rem);
+}
+.establish-font-size(@px) {
+	@base-font-size: @px;
+
+	// The assumed default browser font size. We do this because if we set a pixel
+	// font size on the HTML element, some (all?) browsers will use it instead of
+	// user styles. DON'T CHANGE THIS VALUE.
+	@browser-base-font-size: 16px;
+
+	html {
+		font-size: unit(100 * @base-font-size / @browser-base-font-size, ~'%');
+	}
+}
+
+#gradient {
+
+  .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-gradient(linear, @start-percent top, @end-percent top, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent)); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image:  linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+
+  {
+    background-image: -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @start-color, @start-percent, @end-color, @end-percent); // Safari 5.1+, Chrome 10+
+    background-image:  -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+  .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(@deg, @start-color, @end-color); // FF 3.6+
+    background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10
+  }
+  .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(top, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .radial(@inner-color: #555; @outer-color: #333) {
+    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+    background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: -moz-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: radial-gradient(circle, @inner-color, @outer-color);
+    background-repeat: no-repeat;
+  }
+  .striped(@color: #555; @angle: 45deg) {
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  }
+}
+
+.hyphens(@mode: auto) {
+	word-wrap: break-word;
+	-webkit-hyphens: @mode;
+	-moz-hyphens: @mode;
+	-ms-hyphens: @mode;
+	-o-hyphens: @mode;
+	hyphens: @mode;
+}
+
+.inline-block() {
+	display: inline-block;
+}
+
+.inline-block() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+.ir(@width, @ratio) {
+	// calculate ratios by dividing width/height
+	// so a 16x9 box would be 16/9 = 1.777777778
+	width: unit(@width, ~'%');
+	height: 0;
+	padding-bottom: unit(@width / @ratio, ~'%');
+}
+
+.ir(@width, @ratio-width, @ratio-height) {
+ .ir(@width, unit(@ratio-width) / unit(@ratio-height));
+}
+
+.h-margin(@val) {
+	margin-left: @val;
+	margin-right: @val;
+}
+.v-margin(@val) {
+	margin-top: @val;
+	margin-bottom: @val;
+}
+.opacity(@opacity) {
+	opacity: (@opacity / 100);
+}
+
+.opacity(@opacity) when (@support-ie8 = true) {
+	.@{ie8-class} & {
+		filter: ~"alpha(opacity=@{opacity})";
+	}
+}
+.h-padding(@val) {
+	padding-left: @val;
+	padding-right: @val;
+}
+.v-padding(@val) {
+	padding-top: @val;
+	padding-bottom: @val;
+}
+.placeholder() {
+  &::-webkit-input-placeholder { .placeholder-styles; }
+  &:-ms-input-placeholder { .placeholder-styles; }
+  &::input-placeholder { .placeholder-styles; }
+  &:input-placeholder { .placeholder-styles; }
+  &::-moz-placeholder { .placeholder-styles; }
+  &:-moz-placeholder { .placeholder-styles; }
+  &::placeholder { .placeholder-styles; }
+  &:placeholder { .placeholder-styles; }
+}
+
+.replace-text() {
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.reset-filter() {
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+.resize(@direction) {
+	resize: @direction; // Options: horizontal, vertical, both
+	overflow: auto; // Safari fix
+}
+.rotate(@degrees) {
+	-webkit-transform: rotate(@degrees);
+	-moz-transform: rotate(@degrees);
+	-ms-transform: rotate(@degrees);
+	-o-transform: rotate(@degrees);
+	transform: rotate(@degrees);
+}
+.rotate(@degrees, @xy) {
+	@axis: `'@{xy}'.toUpperCase()`;
+	-webkit-transform: ~'rotate@{axis}(@{degrees})';
+	-moz-transform: ~'rotate@{axis}(@{degrees})';
+	-ms-transform: ~'rotate@{axis}(@{degrees})';
+	-o-transform: ~'rotate@{axis}(@{degrees})';
+	transform: ~'rotate@{axis}(@{degrees})';
+}
+.scale(@ratio) {
+	-webkit-transform: scale(@ratio);
+	-moz-transform: scale(@ratio);
+	-ms-transform: scale(@ratio);
+	-o-transform: scale(@ratio);
+	transform: scale(@ratio);
+}
+.scale(@x, @y) {
+	-webkit-transform: scale(@x, @y);
+	-moz-transform: scale(@x, @y);
+	-ms-transform: scale(@x, @y);
+	-o-transform: scale(@x, @y);
+	transform: scale(@x, @y);
+}
+.size(@size) {
+	width: @size;
+	height: @size;
+}
+ {
+	width: @width;
+	height: @height;
+}
+
+.skew(@x, @y) {
+	-webkit-transform: skew(@x, @y);
+	-moz-transform: skew(@x, @y);
+	-ms-transform: skew(@x, @y);
+	-o-transform: skew(@x, @y);
+	transform: skew(@x, @y);
+}
+@import './inline-block';
+@import './replace-text';
+#sprite {
+	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		.inline-block();
+		.replace-text();
+
+		background-image: @image;
+		background-repeat: no-repeat;
+		background-position: -@sprite-x -@sprite-y;
+		width: @sprite-width;
+		height: @sprite-height;
+	}
+
+	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:before {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:after {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+}
+
+.sticky-footer(@height, @wrapper: ~"> div:first-child") {
+
+	.push () {
+		height: @height;
+		width: 100%;
+		display: block;
+		background: transparent;
+		content: '';
+	}
+
+	html, body {
+		height: 100%;
+	}
+
+	body {
+
+	    @{wrapper} {
+			min-height: 100%;
+			margin-bottom: -@height;
+
+			&:after {
+				.push();
+			}
+		}
+
+		> footer {
+			height: @height;
+		}
+	}
+
+  .check-support () when (@support-ie7 = true) {
+    .@{ie7-class} .push {
+    	.push();
+    }
+  }
+  .check-support();
+}
+.transform(@params) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	-ms-transform: @params;
+	-o-transform: @params;
+	transform: @params;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition; // Safari 6, Mobile Safari 6, Android & Blackberry
+	-moz-transition: @transition; // Firefox 4.0
+	-o-transition: @transition; // old opera
+	transition: @transition; // IE10
+}
+.transition-property(@property) {
+	-webkit-transition-property: @property;
+	-moz-transition-property: @property;
+	-o-transition-property: @property;
+	transition-property: @property;
+}
+.transition-property(@property, @prefix) when (@prefix = true) {
+    -webkit-transition-property: ~"-webkit-@{property}";
+	-moz-transition-property: ~"-moz-@{property}";
+	-o-transition-property: ~"-o-@{property}";
+	transition-property: @property;
+}
+.transition-duration(@duration) {
+	-webkit-transition-duration: @duration;
+	-moz-transition-duration: @duration;
+	-o-transition-duration: @duration;
+	transition-duration: @duration;
+}
+.transition-timing(@timing) {
+	-webkit-transition-timing-function: @timing;
+	-moz-transition-timing-function: @timing;
+	-o-transition-timing-function: @timing;
+	transition-timing-function: @timing;
+}
+.transition-delay(@delay) {
+	-webkit-transition-delay: @delay;
+	-moz-transition-delay: @delay;
+	-o-transition-delay: @delay;
+	transition-delay: @delay;
+}
+
+
+.translate(@x, @y) {
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.translate(@x, @y, @z) {
+	-webkit-transform: translate3d(@x, @y, @z);
+	-moz-transform: translate3d(@x, @y, @z);
+	-ms-transform: translate3d(@x, @y, @z);
+	-o-transform: translate3d(@x, @y, @z);
+	transform: translate3d(@x, @y, @z);
+}
+
+#transparent {
+
+	.color(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			color: @color;
+		}
+	}
+
+	.color(@color, @alpha: 1) {
+		color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+
+	.background(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			background-color: @color;
+		}
+	}
+
+	.background(@color, @alpha: 1) {
+		background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+}
+@import 'border-radius';
+@import 'background-clip';
+.unstyle-form() {
+	textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+		.background-clip(padding);
+		.border-radius(0);
+
+		-webkit-appearance: none;
+		background-color: #fff;
+		color: #000;
+		outline: 0;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		border: none;
+	}
+
+	fieldset, button, input[type="button"], input[type="reset"], input[type="submit"] {
+		-webkit-appearance: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	button, input[type="button"], input[type="reset"], input[type="submit"] {
+		background: white;
+		color: #000;
+	}
+
+	legend {
+		padding: 0;
+	}
+}
+.unstyle-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		margin: 0;
+		padding: 0;
+	}
+}
+.user-select(@select) {
+	-webkit-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	-o-user-select: @select;
+	user-select: @select;
+}
+.valign(@height) {
+	display: table;
+	height: @height;
+	overflow: hidden;
+	position: relative;
+
+	> .inner {
+		display: table-cell;
+		vertical-align: middle;
+		margin: 0 auto;
+
+		.element {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.check-support() when (@support-ie7 = true) {
+		.@{ie7-class} & {
+			overflow: visible;
+
+			> .inner {
+				position: absolute;
+				top: 50%;
+
+				.element {
+					top: -50%;
+				}
+			}
+		}
+	}
+	.check-support();
+}
+.backface-visibility(@visibility) {
+	-webkit-backface-visibility: @visibility;
+	-moz-backface-visibility: @visibility;
+	-ms-backface-visibility: @visibility;
+	backface-visibility: @visibility;
+}
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	-moz-background-clip: @clip;
+	background-clip: @clip;
+}
+.background-size(@size) {
+	-webkit-background-size: @size;
+	-moz-background-size: @size;
+	-o-background-size: @size;
+	background-size: @size;
+}
+@import 'reset-filter';
+
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.border-radius(@radius) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+
+@import 'reset-filter';
+
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.box-shadow(@shadow) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	-moz-box-sizing: @boxmodel;
+	-ms-box-sizing: @boxmodel;
+	box-sizing: @boxmodel;
+}
+
+.box-sizing(@boxmodel) when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		behavior: url("@{boxsizing-url}");
+	}
+}
+@import 'margin';
+.center-block() {
+	display: block;
+	.h-margin(auto);
+}
+.clearfix() {
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.clearfix() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		zoom: 1;
+	}
+}
+.columns(@columnCount, @columnGap) {
+	-webkit-column-count: @columnCount;
+	-moz-column-count: @columnCount;
+	column-count: @columnCount;
+	-webkit-column-gap: @columnGap;
+	-moz-column-gap: @columnGap;
+	column-gap: @columnGap;
+}
+@import 'inline-block';
+@import 'rotate';
+
+.copyleft() {
+	.inline-block();
+	.rotate(180deg, Y);
+}
+@import 'transition';
+.delay(@delay) { .transition-delay(@delay) }
+
+.font-size(@px) when (ispixel(@px)) {
+	font-size: @px; // Fallback for browsers that don't like rem
+	font-size: unit(@px / @base-font-size, rem);
+}
+.establish-font-size(@px) {
+	@base-font-size: @px;
+
+	// The assumed default browser font size. We do this because if we set a pixel
+	// font size on the HTML element, some (all?) browsers will use it instead of
+	// user styles. DON'T CHANGE THIS VALUE.
+	@browser-base-font-size: 16px;
+
+	html {
+		font-size: unit(100 * @base-font-size / @browser-base-font-size, ~'%');
+	}
+}
+
+#gradient {
+
+  .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-gradient(linear, @start-percent top, @end-percent top, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent)); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image:  linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+
+  {
+    background-image: -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @start-color, @start-percent, @end-color, @end-percent); // Safari 5.1+, Chrome 10+
+    background-image:  -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+  .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(@deg, @start-color, @end-color); // FF 3.6+
+    background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10
+  }
+  .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(top, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .radial(@inner-color: #555; @outer-color: #333) {
+    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+    background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: -moz-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: radial-gradient(circle, @inner-color, @outer-color);
+    background-repeat: no-repeat;
+  }
+  .striped(@color: #555; @angle: 45deg) {
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  }
+}
+
+.hyphens(@mode: auto) {
+	word-wrap: break-word;
+	-webkit-hyphens: @mode;
+	-moz-hyphens: @mode;
+	-ms-hyphens: @mode;
+	-o-hyphens: @mode;
+	hyphens: @mode;
+}
+
+.inline-block() {
+	display: inline-block;
+}
+
+.inline-block() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+.ir(@width, @ratio) {
+	// calculate ratios by dividing width/height
+	// so a 16x9 box would be 16/9 = 1.777777778
+	width: unit(@width, ~'%');
+	height: 0;
+	padding-bottom: unit(@width / @ratio, ~'%');
+}
+
+.ir(@width, @ratio-width, @ratio-height) {
+ .ir(@width, unit(@ratio-width) / unit(@ratio-height));
+}
+
+.h-margin(@val) {
+	margin-left: @val;
+	margin-right: @val;
+}
+.v-margin(@val) {
+	margin-top: @val;
+	margin-bottom: @val;
+}
+.opacity(@opacity) {
+	opacity: (@opacity / 100);
+}
+
+.opacity(@opacity) when (@support-ie8 = true) {
+	.@{ie8-class} & {
+		filter: ~"alpha(opacity=@{opacity})";
+	}
+}
+.h-padding(@val) {
+	padding-left: @val;
+	padding-right: @val;
+}
+.v-padding(@val) {
+	padding-top: @val;
+	padding-bottom: @val;
+}
+.placeholder() {
+  &::-webkit-input-placeholder { .placeholder-styles; }
+  &:-ms-input-placeholder { .placeholder-styles; }
+  &::input-placeholder { .placeholder-styles; }
+  &:input-placeholder { .placeholder-styles; }
+  &::-moz-placeholder { .placeholder-styles; }
+  &:-moz-placeholder { .placeholder-styles; }
+  &::placeholder { .placeholder-styles; }
+  &:placeholder { .placeholder-styles; }
+}
+
+.replace-text() {
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.reset-filter() {
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+.resize(@direction) {
+	resize: @direction; // Options: horizontal, vertical, both
+	overflow: auto; // Safari fix
+}
+.rotate(@degrees) {
+	-webkit-transform: rotate(@degrees);
+	-moz-transform: rotate(@degrees);
+	-ms-transform: rotate(@degrees);
+	-o-transform: rotate(@degrees);
+	transform: rotate(@degrees);
+}
+.rotate(@degrees, @xy) {
+	@axis: `'@{xy}'.toUpperCase()`;
+	-webkit-transform: ~'rotate@{axis}(@{degrees})';
+	-moz-transform: ~'rotate@{axis}(@{degrees})';
+	-ms-transform: ~'rotate@{axis}(@{degrees})';
+	-o-transform: ~'rotate@{axis}(@{degrees})';
+	transform: ~'rotate@{axis}(@{degrees})';
+}
+.scale(@ratio) {
+	-webkit-transform: scale(@ratio);
+	-moz-transform: scale(@ratio);
+	-ms-transform: scale(@ratio);
+	-o-transform: scale(@ratio);
+	transform: scale(@ratio);
+}
+.scale(@x, @y) {
+	-webkit-transform: scale(@x, @y);
+	-moz-transform: scale(@x, @y);
+	-ms-transform: scale(@x, @y);
+	-o-transform: scale(@x, @y);
+	transform: scale(@x, @y);
+}
+.size(@size) {
+	width: @size;
+	height: @size;
+}
+ {
+	width: @width;
+	height: @height;
+}
+
+.skew(@x, @y) {
+	-webkit-transform: skew(@x, @y);
+	-moz-transform: skew(@x, @y);
+	-ms-transform: skew(@x, @y);
+	-o-transform: skew(@x, @y);
+	transform: skew(@x, @y);
+}
+@import './inline-block';
+@import './replace-text';
+#sprite {
+	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		.inline-block();
+		.replace-text();
+
+		background-image: @image;
+		background-repeat: no-repeat;
+		background-position: -@sprite-x -@sprite-y;
+		width: @sprite-width;
+		height: @sprite-height;
+	}
+
+	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:before {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:after {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+}
+
+.sticky-footer(@height, @wrapper: ~"> div:first-child") {
+
+	.push () {
+		height: @height;
+		width: 100%;
+		display: block;
+		background: transparent;
+		content: '';
+	}
+
+	html, body {
+		height: 100%;
+	}
+
+	body {
+
+	    @{wrapper} {
+			min-height: 100%;
+			margin-bottom: -@height;
+
+			&:after {
+				.push();
+			}
+		}
+
+		> footer {
+			height: @height;
+		}
+	}
+
+  .check-support () when (@support-ie7 = true) {
+    .@{ie7-class} .push {
+    	.push();
+    }
+  }
+  .check-support();
+}
+.transform(@params) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	-ms-transform: @params;
+	-o-transform: @params;
+	transform: @params;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition; // Safari 6, Mobile Safari 6, Android & Blackberry
+	-moz-transition: @transition; // Firefox 4.0
+	-o-transition: @transition; // old opera
+	transition: @transition; // IE10
+}
+.transition-property(@property) {
+	-webkit-transition-property: @property;
+	-moz-transition-property: @property;
+	-o-transition-property: @property;
+	transition-property: @property;
+}
+.transition-property(@property, @prefix) when (@prefix = true) {
+    -webkit-transition-property: ~"-webkit-@{property}";
+	-moz-transition-property: ~"-moz-@{property}";
+	-o-transition-property: ~"-o-@{property}";
+	transition-property: @property;
+}
+.transition-duration(@duration) {
+	-webkit-transition-duration: @duration;
+	-moz-transition-duration: @duration;
+	-o-transition-duration: @duration;
+	transition-duration: @duration;
+}
+.transition-timing(@timing) {
+	-webkit-transition-timing-function: @timing;
+	-moz-transition-timing-function: @timing;
+	-o-transition-timing-function: @timing;
+	transition-timing-function: @timing;
+}
+.transition-delay(@delay) {
+	-webkit-transition-delay: @delay;
+	-moz-transition-delay: @delay;
+	-o-transition-delay: @delay;
+	transition-delay: @delay;
+}
+
+
+.translate(@x, @y) {
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.translate(@x, @y, @z) {
+	-webkit-transform: translate3d(@x, @y, @z);
+	-moz-transform: translate3d(@x, @y, @z);
+	-ms-transform: translate3d(@x, @y, @z);
+	-o-transform: translate3d(@x, @y, @z);
+	transform: translate3d(@x, @y, @z);
+}
+
+#transparent {
+
+	.color(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			color: @color;
+		}
+	}
+
+	.color(@color, @alpha: 1) {
+		color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+
+	.background(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			background-color: @color;
+		}
+	}
+
+	.background(@color, @alpha: 1) {
+		background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+}
+@import 'border-radius';
+@import 'background-clip';
+.unstyle-form() {
+	textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+		.background-clip(padding);
+		.border-radius(0);
+
+		-webkit-appearance: none;
+		background-color: #fff;
+		color: #000;
+		outline: 0;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		border: none;
+	}
+
+	fieldset, button, input[type="button"], input[type="reset"], input[type="submit"] {
+		-webkit-appearance: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	button, input[type="button"], input[type="reset"], input[type="submit"] {
+		background: white;
+		color: #000;
+	}
+
+	legend {
+		padding: 0;
+	}
+}
+.unstyle-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		margin: 0;
+		padding: 0;
+	}
+}
+.user-select(@select) {
+	-webkit-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	-o-user-select: @select;
+	user-select: @select;
+}
+.valign(@height) {
+	display: table;
+	height: @height;
+	overflow: hidden;
+	position: relative;
+
+	> .inner {
+		display: table-cell;
+		vertical-align: middle;
+		margin: 0 auto;
+
+		.element {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.check-support() when (@support-ie7 = true) {
+		.@{ie7-class} & {
+			overflow: visible;
+
+			> .inner {
+				position: absolute;
+				top: 50%;
+
+				.element {
+					top: -50%;
+				}
+			}
+		}
+	}
+	.check-support();
+}
+.backface-visibility(@visibility) {
+	-webkit-backface-visibility: @visibility;
+	-moz-backface-visibility: @visibility;
+	-ms-backface-visibility: @visibility;
+	backface-visibility: @visibility;
+}
+.background-clip(@clip) {
+	-webkit-background-clip: @clip;
+	-moz-background-clip: @clip;
+	background-clip: @clip;
+}
+.background-size(@size) {
+	-webkit-background-size: @size;
+	-moz-background-size: @size;
+	-o-background-size: @size;
+	background-size: @size;
+}
+@import 'reset-filter';
+
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.border-radius(@radius) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+
+@import 'reset-filter';
+
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.box-shadow(@shadow) when (@support-pie = true) {
+	.@{ie8-class} & {
+		.reset-filter();
+		behavior: url("@{pie-url}");
+	}
+}
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	-moz-box-sizing: @boxmodel;
+	-ms-box-sizing: @boxmodel;
+	box-sizing: @boxmodel;
+}
+
+.box-sizing(@boxmodel) when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		behavior: url("@{boxsizing-url}");
+	}
+}
+@import 'margin';
+.center-block() {
+	display: block;
+	.h-margin(auto);
+}
+.clearfix() {
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.clearfix() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		zoom: 1;
+	}
+}
+.columns(@columnCount, @columnGap) {
+	-webkit-column-count: @columnCount;
+	-moz-column-count: @columnCount;
+	column-count: @columnCount;
+	-webkit-column-gap: @columnGap;
+	-moz-column-gap: @columnGap;
+	column-gap: @columnGap;
+}
+@import 'inline-block';
+@import 'rotate';
+
+.copyleft() {
+	.inline-block();
+	.rotate(180deg, Y);
+}
+@import 'transition';
+.delay(@delay) { .transition-delay(@delay) }
+
+.font-size(@px) when (ispixel(@px)) {
+	font-size: @px; // Fallback for browsers that don't like rem
+	font-size: unit(@px / @base-font-size, rem);
+}
+.establish-font-size(@px) {
+	@base-font-size: @px;
+
+	// The assumed default browser font size. We do this because if we set a pixel
+	// font size on the HTML element, some (all?) browsers will use it instead of
+	// user styles. DON'T CHANGE THIS VALUE.
+	@browser-base-font-size: 16px;
+
+	html {
+		font-size: unit(100 * @base-font-size / @browser-base-font-size, ~'%');
+	}
+}
+
+#gradient {
+
+  .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+    background-image: -webkit-gradient(linear, @start-percent top, @end-percent top, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent)); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image:  linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+
+  {
+    background-image: -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @start-color, @start-percent, @end-color, @end-percent); // Safari 5.1+, Chrome 10+
+    background-image:  -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); // FF 3.6+
+    background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
+  }
+  .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(@deg, @start-color, @end-color); // FF 3.6+
+    background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10
+  }
+  .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+    background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-image: -moz-linear-gradient(top, @start-color, @mid-color @color-stop, @end-color);
+    background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+    background-repeat: no-repeat;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
+  }
+  .radial(@inner-color: #555; @outer-color: #333) {
+    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+    background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: -moz-radial-gradient(circle, @inner-color, @outer-color);
+    background-image: radial-gradient(circle, @inner-color, @outer-color);
+    background-repeat: no-repeat;
+  }
+  .striped(@color: #555; @angle: 45deg) {
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  }
+}
+
+.hyphens(@mode: auto) {
+	word-wrap: break-word;
+	-webkit-hyphens: @mode;
+	-moz-hyphens: @mode;
+	-ms-hyphens: @mode;
+	-o-hyphens: @mode;
+	hyphens: @mode;
+}
+
+.inline-block() {
+	display: inline-block;
+}
+
+.inline-block() when (@support-ie7 = true) {
+	.@{ie7-class} & {
+		display: inline;
+		zoom: 1;
+	}
+}
+
+.ir(@width, @ratio) {
+	// calculate ratios by dividing width/height
+	// so a 16x9 box would be 16/9 = 1.777777778
+	width: unit(@width, ~'%');
+	height: 0;
+	padding-bottom: unit(@width / @ratio, ~'%');
+}
+
+.ir(@width, @ratio-width, @ratio-height) {
+ .ir(@width, unit(@ratio-width) / unit(@ratio-height));
+}
+
+.h-margin(@val) {
+	margin-left: @val;
+	margin-right: @val;
+}
+.v-margin(@val) {
+	margin-top: @val;
+	margin-bottom: @val;
+}
+.opacity(@opacity) {
+	opacity: (@opacity / 100);
+}
+
+.opacity(@opacity) when (@support-ie8 = true) {
+	.@{ie8-class} & {
+		filter: ~"alpha(opacity=@{opacity})";
+	}
+}
+.h-padding(@val) {
+	padding-left: @val;
+	padding-right: @val;
+}
+.v-padding(@val) {
+	padding-top: @val;
+	padding-bottom: @val;
+}
+.placeholder() {
+  &::-webkit-input-placeholder { .placeholder-styles; }
+  &:-ms-input-placeholder { .placeholder-styles; }
+  &::input-placeholder { .placeholder-styles; }
+  &:input-placeholder { .placeholder-styles; }
+  &::-moz-placeholder { .placeholder-styles; }
+  &:-moz-placeholder { .placeholder-styles; }
+  &::placeholder { .placeholder-styles; }
+  &:placeholder { .placeholder-styles; }
+}
+
+.replace-text() {
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.reset-filter() {
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+.resize(@direction) {
+	resize: @direction; // Options: horizontal, vertical, both
+	overflow: auto; // Safari fix
+}
+.rotate(@degrees) {
+	-webkit-transform: rotate(@degrees);
+	-moz-transform: rotate(@degrees);
+	-ms-transform: rotate(@degrees);
+	-o-transform: rotate(@degrees);
+	transform: rotate(@degrees);
+}
+.rotate(@degrees, @xy) {
+	@axis: `'@{xy}'.toUpperCase()`;
+	-webkit-transform: ~'rotate@{axis}(@{degrees})';
+	-moz-transform: ~'rotate@{axis}(@{degrees})';
+	-ms-transform: ~'rotate@{axis}(@{degrees})';
+	-o-transform: ~'rotate@{axis}(@{degrees})';
+	transform: ~'rotate@{axis}(@{degrees})';
+}
+.scale(@ratio) {
+	-webkit-transform: scale(@ratio);
+	-moz-transform: scale(@ratio);
+	-ms-transform: scale(@ratio);
+	-o-transform: scale(@ratio);
+	transform: scale(@ratio);
+}
+.scale(@x, @y) {
+	-webkit-transform: scale(@x, @y);
+	-moz-transform: scale(@x, @y);
+	-ms-transform: scale(@x, @y);
+	-o-transform: scale(@x, @y);
+	transform: scale(@x, @y);
+}
+.size(@size) {
+	width: @size;
+	height: @size;
+}
+ {
+	width: @width;
+	height: @height;
+}
+
+.skew(@x, @y) {
+	-webkit-transform: skew(@x, @y);
+	-moz-transform: skew(@x, @y);
+	-ms-transform: skew(@x, @y);
+	-o-transform: skew(@x, @y);
+	transform: skew(@x, @y);
+}
+@import './inline-block';
+@import './replace-text';
+#sprite {
+	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		.inline-block();
+		.replace-text();
+
+		background-image: @image;
+		background-repeat: no-repeat;
+		background-position: -@sprite-x -@sprite-y;
+		width: @sprite-width;
+		height: @sprite-height;
+	}
+
+	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:before {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+	.after(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
+		&:after {
+			content: '';
+			#sprite > .sprite(@image; @sprite-width; @sprite-height; @sprite-x; @sprite-y);
+		}
+	}
+}
+
+.sticky-footer(@height, @wrapper: ~"> div:first-child") {
+
+	.push () {
+		height: @height;
+		width: 100%;
+		display: block;
+		background: transparent;
+		content: '';
+	}
+
+	html, body {
+		height: 100%;
+	}
+
+	body {
+
+	    @{wrapper} {
+			min-height: 100%;
+			margin-bottom: -@height;
+
+			&:after {
+				.push();
+			}
+		}
+
+		> footer {
+			height: @height;
+		}
+	}
+
+  .check-support () when (@support-ie7 = true) {
+    .@{ie7-class} .push {
+    	.push();
+    }
+  }
+  .check-support();
+}
+.transform(@params) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	-ms-transform: @params;
+	-o-transform: @params;
+	transform: @params;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition; // Safari 6, Mobile Safari 6, Android & Blackberry
+	-moz-transition: @transition; // Firefox 4.0
+	-o-transition: @transition; // old opera
+	transition: @transition; // IE10
+}
+.transition-property(@property) {
+	-webkit-transition-property: @property;
+	-moz-transition-property: @property;
+	-o-transition-property: @property;
+	transition-property: @property;
+}
+.transition-property(@property, @prefix) when (@prefix = true) {
+    -webkit-transition-property: ~"-webkit-@{property}";
+	-moz-transition-property: ~"-moz-@{property}";
+	-o-transition-property: ~"-o-@{property}";
+	transition-property: @property;
+}
+.transition-duration(@duration) {
+	-webkit-transition-duration: @duration;
+	-moz-transition-duration: @duration;
+	-o-transition-duration: @duration;
+	transition-duration: @duration;
+}
+.transition-timing(@timing) {
+	-webkit-transition-timing-function: @timing;
+	-moz-transition-timing-function: @timing;
+	-o-transition-timing-function: @timing;
+	transition-timing-function: @timing;
+}
+.transition-delay(@delay) {
+	-webkit-transition-delay: @delay;
+	-moz-transition-delay: @delay;
+	-o-transition-delay: @delay;
+	transition-delay: @delay;
+}
+
+
+.translate(@x, @y) {
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.translate(@x, @y, @z) {
+	-webkit-transform: translate3d(@x, @y, @z);
+	-moz-transform: translate3d(@x, @y, @z);
+	-ms-transform: translate3d(@x, @y, @z);
+	-o-transform: translate3d(@x, @y, @z);
+	transform: translate3d(@x, @y, @z);
+}
+
+#transparent {
+
+	.color(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			color: @color;
+		}
+	}
+
+	.color(@color, @alpha: 1) {
+		color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+
+	.background(@color, @alpha: 1) when (@support-ie8 = true) {
+		.@{ie8-class} & {
+			background-color: @color;
+		}
+	}
+
+	.background(@color, @alpha: 1) {
+		background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+}
+@import 'border-radius';
+@import 'background-clip';
+.unstyle-form() {
+	textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+		.background-clip(padding);
+		.border-radius(0);
+
+		-webkit-appearance: none;
+		background-color: #fff;
+		color: #000;
+		outline: 0;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		border: none;
+	}
+
+	fieldset, button, input[type="button"], input[type="reset"], input[type="submit"] {
+		-webkit-appearance: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	button, input[type="button"], input[type="reset"], input[type="submit"] {
+		background: white;
+		color: #000;
+	}
+
+	legend {
+		padding: 0;
+	}
+}
+.unstyle-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		margin: 0;
+		padding: 0;
+	}
+}
+.user-select(@select) {
+	-webkit-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	-o-user-select: @select;
+	user-select: @select;
+}
+.valign(@height) {
+	display: table;
+	height: @height;
+	overflow: hidden;
+	position: relative;
+
+	> .inner {
+		display: table-cell;
+		vertical-align: middle;
+		margin: 0 auto;
+
+		.element {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.check-support() when (@support-ie7 = true) {
+		.@{ie7-class} & {
+			overflow: visible;
+
+			> .inner {
+				position: absolute;
+				top: 50%;
+
+				.element {
+					top: -50%;
+				}
+			}
+		}
+	}
+	.check-support();
+}</code></pre></div></article></section><div class="bar bottom"><div hidden class="settings container"><!-- Icons from http://iconmonstr.com--><button title="Desktop (1280)" data-width='1280'><svg viewBox="0 0 412 386" height="24" width="26" class="icon"><path d="m147.6,343.9c-4.5,15.9-26.2,37.6-42.1,42.1h201c-15.3,-4-38.1,-26.8-42.1,-42.1H147.6zM387,0.5H25c-13.8,0-25,11.2-25,25V294c0,13.8 11.2,25 25,25h362c13.8,0 25,-11.2 25,-25V25.5C412,11.7 400.8,0.5 387,0.5zM369.9,238.2H42.1L42.1,42.6 369.9,42.6V238.2z"></path></svg></button><button title="Laptop (1024)" data-width='1024'><svg viewBox="0 0 384 312" height="23" width="28" class="icon"><path d="m349.2,20.5c0,-11-9,-20-20,-20H53.6c-11,0-20,9-20,20v194H349.2v-194zm-27,167H60.6V27.5H322.2v160zm28,42H32.6L2.6,282.1c-3.5,6.2-3.5,13.8 0.1,19.9 3.6,6.2 10.2,9.9 17.3,9.9H363.1c7.1,0 13.7,-3.8 17.3,-10 3.6,-6.2 3.6,-13.8 0,-20l-30.2,-52.5zm-196.9,54 8,-23.5h60.5l8,23.5h-76.5z"></path></svg></button><button title="Tablet (768)" data-width='768'><svg viewBox="0 0 317 412" height="24" width="18" class="icon"><path d="M 316.5,380 V 32 c 0,-17.7 -14.3,-32 -32,-32 H 32 C 14.3,0 0,14.3 0,32 v 348 c 0,17.7 14.3,32 32,32 h 252.5 c 17.7,0 32,-14.3 32,-32 z M 40,367 V 45 H 276.5 V 367 H 40 z m 109.8,22.7 c 0,-4.7 3.8,-8.5 8.5,-8.5 4.7,0 8.5,3.8 8.5,8.5 0,4.7 -3.8,8.5 -8.5,8.5 -4.7,0 -8.5,-3.8 -8.5,-8.5 z"></path></svg></button><button title="Smart phone (320)" data-width='320'><svg viewBox="0 0 224 412" height="24" width="13" class="icon"><path d="M 190.7,0 H 33 C 14.8,0 0,14.8 0,33 v 346 c 0,18.2 14.8,33 33,33 h 157.7 c 18.2,0 33,-14.8 33,-33 V 33 c 0,-18.2 -14.8,-33 -33,-33 z M 94.3,30.2 h 37 c 2.2,0 4,1.8 4,4 0,2.2 -1.8,4 -4,4 h -37 c -2.2,0 -4,-1.8 -4,-4 0,-2.2 1.8,-4 4,-4 z m 18.5,362.8 c -8.8,0 -16,-7.2 -16,-16 0,-8.8 7.2,-16 16,-16 8.8,0 16,7.2 16,16 0,8.8 -7.2,16 -16,16 z M 198.6,343.8 H 25.1 V 68.2 h 173.5 v 275.5 z"></path></svg></button><button title="Feature phone (240)" data-width='240'><svg viewBox="0 0 201 412" height="24" width="12" class="icon"><path d="M 165.5,0.2 V 45 H 25 c -13.8,0 -25,11.2 -25,25 V 387 c 0,13.8 11.2,25 25,25 h 150.5 c 13.8,0 25,-11.2 25,-25 V 0.2 h -35 z M 65.2,366.5 H 34.2 v -24.5 h 31 v 24.5 z m 0,-44.3 H 34.2 v -24.5 h 31 v 24.5 z m 50.5,44.3 H 84.7 v -24.5 h 31 v 24.5 z m 0,-44.3 H 84.7 v -24.5 h 31 v 24.5 z m 50.5,44.3 h -31 v -24.5 h 31 v 24.5 z m 0,-44.3 h -31 v -24.5 h 31 v 24.5 z m 0,-59.3 h -132 V 95.4 h 132 V 262.9 z"></path></svg></button><button title="Auto (100%)" data-width="auto" class="auto is-active">Auto</button></div></div><script>(function(){var a=[{title:"mixins",filename:"mixins",url:"mixins.html"},{title:".backface-visibility()",filename:"mixins",url:"mixins.html#backfacevisibility"}];(function(){"use strict";var b=function(a,b){return Array.prototype.indexOf.call(a,b)!==-1},c=function(a,b){return Array.prototype.filter.call(a,b)},d=function(a,b){return Array.prototype.forEach.call(a,b)},e=document.getElementsByTagName("body")[0];e.addEventListener("click",function(a){var b=a.target;b.tagName.toLowerCase()==="svg"&&(b=b.parentNode);var c=!1;b.dataset.toggle!=null&&(a.preventDefault(),b.classList.contains("is-active")||(c=!0)),d(e.querySelectorAll("[data-toggle]"),function(a){a.classList.remove("is-active"),document.getElementById(a.dataset.toggle).hidden=!0}),c&&(b.classList.add("is-active"),document.getElementById(b.dataset.toggle).hidden=!1)}),function(){var f=e.getElementsByClassName("nav")[0];if(!f)return;var g=document.createElement("ul");g.className="nav-results",g.id="nav-search",g.hidden=!0,d(a,function(a){var b,c,d;b=document.createElement("li"),b._title=a.title.toLowerCase(),b.hidden=!0,b.appendChild(c=document.createElement("a")),c.href=a.url,c.innerHTML=a.title,c.appendChild(d=document.createElement("span")),d.innerHTML=a.filename,d.className="nav-results-filename",g.appendChild(b)}),f.appendChild(g);var h=g.children,i=function(a){d(h,function(a){a.hidden=!0});var b=this.value.toLowerCase(),e=[];b!==""&&(e=c(h,function(a){return a._title.indexOf(b)!==-1})),e.length>0?(d(e,function(a){a.hidden=!1}),g.hidden=!1):g.hidden=!0},j=f.querySelector('input[type="search"]');j.addEventListener("keyup",i),j.addEventListener("focus",i),e.addEventListener("click",function(a){if(a.target.classList&&a.target.classList.contains("search"))return;g.hidden=!0}),g.addEventListener("click",function(a){j.value=""});var k=document.createElement("ul");k.id="nav-toc",k.hidden=!0,k.className="nav-results toc-list",c(e.getElementsByTagName("*"),function(a){return b(["h1","h2","h3"],a.tagName.toLowerCase())}).map(function(a){var b=document.createElement("li"),c=document.createElement("a"),d=a.tagName.toLowerCase()[1];c.classList.add("level-"+d),b.appendChild(c),c.href="#"+a.id,c.innerHTML=a.innerHTML,k.appendChild(b)}),f.appendChild(k)}()})(),function(){"use strict";if(location.hash==="#__preview__"||location.protocol==="data:")return;var a=function(a,b){return Array.prototype.forEach.call(a,b)},b=function(a,b){var e=Array.prototype.slice.call(arguments,2);return d(a,function(a){return(c(b)?b||a:a[b]).apply(a,e)})},c=function(a){return Object.prototype.toString.call(a)==="[object Function]"},d=function(a,b){return Array.prototype.map.call(a,b)},e=function(a,b){return d(a,function(a){return a[b]})},f=function(a){var b={},c=a.split(";");for(var d=0;c.length>d;d++){var e=c[d].trim().split("=");b[e[0]]=e[1]}return b},g=function(a,c){return b(e(a,"classList"),"remove",c)},h=function(a,b){a.contentDocument.defaultView.postMessage(b,"*")},i=document.getElementsByTagName("head")[0],j=document.getElementsByTagName("body")[0],k=e(i.querySelectorAll('style[type="text/preview"]'),"innerHTML").join(""),l=e(i.querySelectorAll('script[type="text/preview"]'),"innerHTML").join(""),m=location.href.split("#")[0]+"#__preview__",n=document.createElement("iframe");n.src="data:text/html,",j.appendChild(n),n.addEventListener("load",function(){var b={sameOriginDataUri:!1};this.contentDocument&&(b.sameOriginDataUri=!0),this.parentNode.removeChild(this),a(j.getElementsByTagName("textarea"),function(a,c){o(a,b,c),q(),p(a)})});var o=function(a,b,c){var d,e,f;d=document.createElement("div"),d.appendChild(e=document.createElement("div")),d.className="preview",e.appendChild(f=document.createElement("iframe")),e.className="resizeable",f.setAttribute("scrolling","no"),f.name="iframe"+c++,f.addEventListener("load",function(){var c,d,e,f,g,i,j;j=this.contentDocument;if(!b.sameOriginDataUri&&this.src!==m)return;this.src===m&&(c=j.createElement("html"),c.appendChild(j.createElement("head")),c.appendChild(d=j.createElement("body")),d.innerHTML=a.textContent,j.replaceChild(c,j.documentElement)),g=j.createElement("head"),g.appendChild(f=j.createElement("style")),g.appendChild(e=j.createElement("script")),e.textContent=l,f.textContent=k,i=j.getElementsByTagName("head")[0],i.parentNode.replaceChild(g,i),h(this,"getHeight")});var g;b.sameOriginDataUri?g="data:text/html;charset=utf-8,"+encodeURIComponent("<!doctype html><html><head></head></body>"+a.textContent):g=m,f.setAttribute("src",g);var i=function(){f.contentDocument.body.innerHTML=this.value,h(f,"getHeight")};a.addEventListener("keypress",i),a.addEventListener("keyup",i),a.parentNode.insertBefore(d,a)},p=function(a){var b=document.createElement("div");b.className="preview-code",b.style.position="absolute",b.style.left="-9999px",j.appendChild(b);var c=parseInt(window.getComputedStyle(a).getPropertyValue("max-height"),10),d=function(a){b.textContent=this.value+"\n";var d=b.offsetHeight+2;d>=c?this.style.overflow="auto":this.style.overflow="hidden",this.style.height=b.offsetHeight+2+"px"};a.addEventListener("keypress",d),a.addEventListener("keyup",d),d.call(a)},q=function(){var b=j.getElementsByClassName("settings")[0],c=j.getElementsByClassName("resizeable"),d=30,e=function(b){document.cookie="preview-width="+b,a(c,function(a){b==="auto"&&(b=a.parentNode.offsetWidth),a.style.width=b+"px",h(a.getElementsByTagName("iframe")[0],"getHeight")})},i=f(document.cookie)["preview-width"];if(i){e(i),g(b.getElementsByClassName("is-active"),"is-active");var k=b.querySelector('button[data-width="'+i+'"]');k&&k.classList.add("is-active")}window.addEventListener("message",function(a){if(a.data==null||!a.source)return;var b=a.data,c=document.getElementsByName(a.source.name)[0];b.height!=null&&c&&(c.parentNode.style.height=b.height+d+"px")},!1),b&&c.length>0&&(b.hidden=!1,b.addEventListener("click",function(a){var c=a.target.tagName.toLowerCase(),d;if(c==="button")d=a.target;else{if(c!=="svg")return;d=a.target.parentNode}a.preventDefault(),g(b.getElementsByClassName("is-active"),"is-active"),d.classList.add("is-active");var f=d.dataset.width;e(f)}))}}()})()</script></body></html><!-- Generated with StyleDocco (http://jacobrask.github.com/styledocco). -->
