@@ -31,14 +31,14 @@ Out of the box, Bedrock supports IE9 up. But it is [CSS3PIE](http://css3pie.com)
 If `@support-pie` is set to `true`, you will want to declare your path to your .htc file. *The default is:*
 
 ```
-@pie_url: '/PIE.htc';
+@pie-url: '/PIE.htc';
 ```
 
 #### Boxsizing
 If `@support-ie7` is set to `true`, you will need to declare your path the box sizing polyfill. *The default is:*
 
 ```
-@boxsizing_url: '/boxsizing.htc';
+@boxsizing-url: '/boxsizing.htc';
 ```
 
 ### Legacy Support
