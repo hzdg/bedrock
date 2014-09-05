@@ -1,76 +1,51 @@
 # Bedrock
 
-Bedrock is a highly un-opinionated and minimal front-end toolset built in LESS by [aebsr]
+Bedrock is a highly un-opinionated and minimal front-end toolset built in LESS by [aebsr]. Bedrock attempts to avoid telling how to write your code by providing some handy shortcuts and gets out of the way.
 
 [aebsr]: http://github.com/aebsr
-
-Framework-free, Bedorock attemps to avoid telling how to write your code and instead allows you to just write it.
 
 ## Quick Start
 
 * Using [Bower](https://github.com/twitter/bower) run `bower install bedrock`
 
 ### Usage
-In your less file(s) use `@import 'path/to/bedrock/bedrock';` or cherry pick individual mixing as needed `@import 'path/to/bedrock/mixins/border-radius';`
 
+In your less file(s) use `@import 'path/to/bedrock/bedrock';`
 
-## Browser and Polyfill Support
-Out of the box, Bedrock supports IE9 up. But it is [CSS3PIE](http://css3pie.com) for IE7 &amp; IE8 as well as [BoxSizing](https://github.com/Schepp/box-sizing-polyfill) for IE7.
+## v2.0 Breaking Changes Log
 
-### Enable Support
+- Removed all mixins that provided solely browser prefixes. We recommend using a buildstep for that on your own.
+- - Backface visibility
+- - Background clip
+- - Background size
+- - Border radius
+- - Box shadow
+- - Box Sizing
+- - Columns
+- - Transitions
+- - Transforms
+- - Gradients
+- - Hyphens
+- - Rotate
+- - Scale
+- - Skew
+- - Translate
+- Removed mixins that duplicated existing less functionality
+- - Transparency
+- Rename Mixins to better state their purpose
+- - .replace-text() has become .hide-text()
+- - .unstyle-list() has become .reset-list()
+- - .unstyle-form() has become .reset-form()
+- Remove all support for IE8 and below
 
-```
-@support-ie7: true;
-@support-ie8: true;
-@support-pie: true;
-```
-*The above support vars are set to false by default*
+## For Discussion
 
-### Declaring Paths
-#### CSS3Pie
-If `@support-pie` is set to `true`, you will want to declare your path to your .htc file. *The default is:*
+### Do we want/need:
 
-```
-@pie-url: '/PIE.htc';
-```
+- the sticky footer mixin
+- a horizontal version of .ir()
+- resizable() *as it accounts solely for a lone Safari bug*
 
-#### Boxsizing
-If `@support-ie7` is set to `true`, you will need to declare your path the box sizing polyfill. *The default is:*
+## Contribute
 
-```
-@boxsizing-url: '/boxsizing.htc';
-```
-
-### Legacy Support
-If updating a pre Bedrock 1.0.0 website enable IE7 & IE8.
-
-## Example
-```
-@import 'bower_components/bedrock/bedrock';
-@support-ie8: true;
-
-h1 {
-	#transparent .color(green, 0.5);
-}
-```
-
-## ToDos
-Modularize support for:
-
-* firefox >3.6
-* safari >4.0
-* mobile/safari (iOS) >3.2
-* mobile/safari (iOS) >4.3
-* android browser >3.0
-* blackberry browser >7.0
-
-## Change Log
-
-- **1.2.0**
-    - .size() mixin takes width before height, following traditional syntax.
-    - Also added .placeholder() mixin.
-- **1.3.0** #sprite mixin set added
-- **1.4.0** .ir() Intrinsic Ratio mixin.
-- **1.5.0** adding .transition-duration() .transition-property() and .transition-delay() mixin. Deprecating .delay()
-- **1.6.0** adding .font-size() mixin to generate pixel and rem based font sizes.
-- **1.7.0** adding .transform(@params) mixin
+This should be a major release, not only through the removal code but by the addition of new shortcuts as well. Please submit ideas as issues, and code as pull requests.

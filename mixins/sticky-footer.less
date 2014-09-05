@@ -9,14 +9,6 @@
 
 .sticky-footer(@height, @wrapper: ~"> div:first-child") {
 
-	.push () {
-		height: @height;
-		width: 100%;
-		display: block;
-		background: transparent;
-		content: '';
-	}
-
 	html, body {
 		height: 100%;
 	}
@@ -28,7 +20,11 @@
 			margin-bottom: -@height;
 
 			&:after {
-				.push();
+				height: @height;
+				width: 100%;
+				display: block;
+				background: transparent;
+				content: '';
 			}
 		}
 
@@ -36,11 +32,4 @@
 			height: @height;
 		}
 	}
-  
-  .check-support () when (@support-ie7 = true) {
-    .@{ie7-class} .push {
-    	.push();
-    }
-  }
-  .check-support();
 }

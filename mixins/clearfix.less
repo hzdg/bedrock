@@ -1,17 +1,8 @@
 // Clearfix
 .clearfix() {
-	&:before,
 	&:after {
-		display: table;
 		content: "";
-	}
-	&:after {
+		display: table;
 		clear: both;
-	}
-}
-
-.clearfix() when (@support-ie7 = true) {
-	.@{ie7-class} & {
-		zoom: 1;
 	}
 }

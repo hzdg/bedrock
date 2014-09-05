@@ -3,20 +3,18 @@
 //	spritesheets, using different methods.
 // ------------------------------------------------
 
-@import './inline-block';
-@import './replace-text';
-
+@import './hide-text';
 
 #sprite {
 	.sprite(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
-		.inline-block();
-		.replace-text();
+		.hide-text();
 
 		background-image: @image;
 		background-repeat: no-repeat;
 		background-position: -@sprite-x -@sprite-y;
 		width: @sprite-width;
 		height: @sprite-height;
+		display: inline-block;
 	}
 
 	.before(@image; @sprite-width; @sprite-height; @sprite-x: 0; @sprite-y: 0) {
